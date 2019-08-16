@@ -5,7 +5,7 @@ namespace Customer.Profile.BusinessObjects
 {
     internal class CustomerProfileBO : ICustomerProfileBO
     {
-        private readonly CustomerProfileDAO _customerProfileDAO;
+        private readonly ICustomerProfileDAO _customerProfileDAO;
 
         public CustomerProfileBO(ICustomerProfileDAO customerProfileDAO)
         {
@@ -19,7 +19,8 @@ namespace Customer.Profile.BusinessObjects
         /// <returns>Customer Profile that was added.</returns>
         public CustomerProfile AddProfile(CustomerProfile profileToAdd)
         {
-            return _customerProfileDAO.AddProfile(profileToAdd);
+            return _customerProfileDAO.AddProfile(new DataAccessObjects.Models.CustomerProfile(profileToAdd))
+                                      .ConvertToBusinessModel();
         }
 
         /// <summary>
@@ -45,7 +46,8 @@ namespace Customer.Profile.BusinessObjects
         /// <returns>Customer Profile if found, NULL if no profile located.</returns>
         public CustomerProfile GetProfile(long id)
         {
-            return _customerProfileDAO.GetProfile(id);
+            return _customerProfileDAO.GetProfile(id)
+                                      .ConvertToBusinessModel();
         }
 
         /// <summary>
@@ -55,7 +57,8 @@ namespace Customer.Profile.BusinessObjects
         /// <returns></returns>
         public CustomerProfile UpdateProfile(CustomerProfile updatedProfile)
         {
-            return _customerProfileDAO.UpdateProfile(updatedProfile);
+            return _customerProfileDAO.UpdateProfile(new DataAccessObjects.Models.CustomerProfile(updatedProfile))
+                                      .ConvertToBusinessModel();
         }
     }
 }
