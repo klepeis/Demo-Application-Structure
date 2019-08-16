@@ -1,7 +1,7 @@
-﻿using System.Net.Http;
+﻿using HttpHelpers;
+using System;
+using System.Net.Http;
 using System.Threading.Tasks;
-using Customer.Client.Profile.Models;
-using HttpHelpers;
 
 namespace Customer.Client.Profile
 {
@@ -13,10 +13,10 @@ namespace Customer.Client.Profile
         {
         }
 
-        public async Task<CustomerProfile> AddCustomerProfileAsync(CustomerProfile profileToAdd)
+        public async Task<TResponse> AddCustomerProfileAsync<TResponse>(Object profileToAdd)
         {
             HttpRequestMessage request = CreateHttpRequestMessage(HttpMethod.Post, $"api/Profile", profileToAdd);
-            return await SendHttpRequestMessageAsync<CustomerProfile>(request);
+            return await SendHttpRequestMessageAsync<TResponse>(request);
         }
 
         public async Task DeleteCustomerProfileAsync(long id)
@@ -25,13 +25,13 @@ namespace Customer.Client.Profile
             await SendHttpRequestMessageAsync(request);
         }
 
-        public async Task<CustomerProfile> GetCustomerProfileAsync(long id)
+        public async Task<TResponse> GetCustomerProfileAsync<TResponse>(long id)
         {
             HttpRequestMessage request = CreateHttpRequestMessage(HttpMethod.Get, $"api/Profile/{id}");
-            return await SendHttpRequestMessageAsync<CustomerProfile>(request);
+            return await SendHttpRequestMessageAsync<TResponse>(request);
         }
 
-        public async Task UpdateCustomerProfileAsync(long id, CustomerProfile profileToUpdate)
+        public async Task UpdateCustomerProfileAsync(long id, Object profileToUpdate)
         {
             HttpRequestMessage request = CreateHttpRequestMessage(HttpMethod.Put, $"api/Profile/{id}", profileToUpdate);
             await SendHttpRequestMessageAsync(request);
