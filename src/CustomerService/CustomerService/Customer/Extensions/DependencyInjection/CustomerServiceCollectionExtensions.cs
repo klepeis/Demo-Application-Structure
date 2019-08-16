@@ -2,8 +2,9 @@
 using Customer.Infrastructure.DbContexts;
 using Customer.Profile.BusinessObjects;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 
-namespace Microsoft.Extensions.DependencyInjection
+namespace Customer.Extensions.DependencyInjection
 {
     public static class CustomerServiceCollectionExtensions
     {
