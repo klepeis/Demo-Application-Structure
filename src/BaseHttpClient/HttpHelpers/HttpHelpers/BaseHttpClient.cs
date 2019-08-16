@@ -29,6 +29,12 @@ namespace HttpHelpers
             return returnValue;
         }
 
+        protected async Task SendHttpRequestMessageAsync(HttpRequestMessage requestMessage)
+        {
+            HttpResponseMessage response = await _client.SendAsync(requestMessage);
+            response.EnsureSuccessStatusCode();
+        }
+
         protected async Task<TResponse> SendHttpRequestMessageAsync<TResponse>(HttpRequestMessage requestMessage)
         {
             HttpResponseMessage response = await _client.SendAsync(requestMessage);
@@ -39,7 +45,6 @@ namespace HttpHelpers
                 new XmlMediaTypeFormatter { UseXmlSerializer = true },
                 new JsonMediaTypeFormatter()
             });
-
         }
     }
 }
