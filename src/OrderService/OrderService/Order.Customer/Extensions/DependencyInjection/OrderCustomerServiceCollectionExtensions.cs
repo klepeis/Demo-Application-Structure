@@ -1,7 +1,9 @@
-﻿using Order.Customer.Factories;
+﻿using Customer.Client.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection;
+using Order.Customer.Factories;
 using Order.Customer.Profile.BusinessObjects;
 
-namespace Microsoft.Extensions.DependencyInjection
+namespace Order.Customer.Extensions.DependencyInjection
 {
     public static class OrderCustomerServiceCollectionExtensions
     {
