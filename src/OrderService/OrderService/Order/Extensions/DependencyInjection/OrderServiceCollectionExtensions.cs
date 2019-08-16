@@ -1,6 +1,9 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 using Order.Customer.Extensions.DependencyInjection;
 using Order.Factories;
+using Order.Infrastructure.DbContexts;
+using Order.OrderDetails.BusinessObjects;
 
 namespace Order.Extensions.DependencyInjection
 {
@@ -10,8 +13,18 @@ namespace Order.Extensions.DependencyInjection
         {
             services.RegisterOrderCustomer();
 
+            services.AddDbContext<OrderDbContext>(opt => 
+            {
+                opt.UseInMemoryDatabase(databaseName: "OrderDb");
+            });
+
             services.AddScoped<IOrderDAOFactory, OrderDAOFactory>();
             services.AddScoped<IOrderBOFactory, OrderBOFactory>();
+
+            services.AddScoped<IOrderDetailsBO>((sp) => 
+            {
+                return sp.GetRequiredService<IOrderBOFactory>().CreateOrderDetailsBO();
+            });
 
             return services;
         }
