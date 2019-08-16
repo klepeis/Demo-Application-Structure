@@ -1,7 +1,8 @@
 ﻿using Customer.Client.Profile;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 
-namespace Microsoft.Extensions.DependencyInjection
+namespace Customer.Client.Extensions.DependencyInjection
 {
     public static class CustomerClientServiceCollectionExtensions
     {
