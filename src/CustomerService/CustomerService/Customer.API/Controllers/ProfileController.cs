@@ -36,7 +36,7 @@ namespace Customer.API.Controllers
 
         // POST: api/Profile
         [HttpPost]
-        public ActionResult<CustomerProfile> Post([FromBody] CustomerProfile profileToAdd)
+        public ActionResult<CustomerProfile> Add([FromBody] CustomerProfile profileToAdd)
         {
             CustomerProfile newProfile = _customerProfileBO.AddProfile(profileToAdd);
             return CreatedAtAction(nameof(GetCustomerProfile), new { id = newProfile.Id }, newProfile);
@@ -44,7 +44,7 @@ namespace Customer.API.Controllers
 
         // PUT: api/Profile/5
         [HttpPut("{id}")]
-        public IActionResult Put(long id, [FromBody] CustomerProfile profileToUpdate)
+        public IActionResult Update(long id, [FromBody] CustomerProfile profileToUpdate)
         {
             if(id != profileToUpdate.Id)
             {
