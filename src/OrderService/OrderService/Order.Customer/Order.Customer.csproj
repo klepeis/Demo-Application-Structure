@@ -8,8 +8,4 @@
     <PackageReference Include="Customer.Client" Version="1.0.3" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Profile\BusinessObjects\" />
-  </ItemGroup>
-
 </Project>

@@ -1,6 +1,6 @@
-﻿namespace Order.Customer.Profile.DataAccessObjects.Models
+﻿namespace Order.Customer.Profile.BusinessObjects.Models
 {
-    internal class CustomerProfile
+    public class CustomerProfile
     {
         public long Id { get; set; }
         public string FirstName { get; set; }
