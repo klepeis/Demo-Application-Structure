@@ -5,13 +5,18 @@ VisualStudioVersion = 16.0.29201.188
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Customer.API", "Customer.API\Customer.API.csproj", "{CE4ECDA6-A811-4E47-9031-36F3FBDA6EFF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Customer", "Customer\Customer.csproj", "{D5AA08C9-8230-46E0-924D-6B0242903E45}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Customer", "Customer\Customer.csproj", "{D5AA08C9-8230-46E0-924D-6B0242903E45}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Customer.Client", "Customer.Client\Customer.Client.csproj", "{568E68C3-AACC-499D-928B-A6B2A1639F4D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Customer.Client", "Customer.Client\Customer.Client.csproj", "{568E68C3-AACC-499D-928B-A6B2A1639F4D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Client - NuGet", "Client - NuGet", "{03D1639D-1700-4B1C-B92F-01575B1D80F3}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Service", "Service", "{1BDF32F9-3650-4404-8892-18A75B20A872}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".NuGet", ".NuGet", "{67C91F19-8BEE-4ED8-91AD-5A13430E5630}"
+	ProjectSection(SolutionItems) = preProject
+		nuget.config = nuget.config
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
