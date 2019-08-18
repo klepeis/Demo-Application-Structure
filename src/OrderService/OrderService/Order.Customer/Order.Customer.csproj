@@ -5,11 +5,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Customer.Client" Version="1.0.4" />
+    <Folder Include="Infrastructure\Configuration\" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Infrastructure\Configuration\" />
+    <PackageReference Include="Klepeis.Customer.Client" Version="1.0.4" />
   </ItemGroup>
 
 </Project>
