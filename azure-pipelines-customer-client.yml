@@ -34,7 +34,7 @@ steps:
     command: 'pack'
     configuration: $(buildConfiguration)
     nobuild: true
-    packagesToPack: 'src/HttpHelpers/HttpHelpers.csproj'
+    packagesToPack: 'src/CustomerService/CustomerService/Customer.Client/Customer.Client.csproj'
 - task: DotNetCoreCLI@2 
   condition: and(succeeded(), ne(variables['Build.SourceBranch'], 'refs/heads/master'))
   displayName: Pack - Non-Master Branch
@@ -42,7 +42,7 @@ steps:
     command: 'pack'
     configuration: $(buildConfiguration)
     nobuild: true
-    packagesToPack: 'src/HttpHelpers/HttpHelpers.csproj'
+    packagesToPack: 'src/CustomerService/CustomerService/Customer.Client/Customer.Client.csproj'
     buildProperties: 'VersionSuffix="-pre"'
 - task: DotNetCoreCLI@2
   displayName: Local Artifact Push
@@ -53,7 +53,7 @@ steps:
     publishVstsFeed: '0519d52d-4ba9-4252-8042-1e0a4fd14def'
 - task: DotNetCoreCLI@2
   condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
-  displayName: Extneral Push To Nuget.Org
+  displayName: External Push To Nuget.Org
   inputs:
     command: 'custom'
     custom: 'nuget'
