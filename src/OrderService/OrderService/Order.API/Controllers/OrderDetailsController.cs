@@ -1,5 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using Order.OrderDetails.BusinessObjects;
+using Order.OrderDetails.BusinessObjects.Models;
 using System.Collections.Generic;
 
 namespace Order.API.Controllers
@@ -24,9 +26,16 @@ namespace Order.API.Controllers
 
         // GET: api/OrderDetails/5
         [HttpGet("{id}", Name = "Get")]
-        public string Get(int id)
+        [ProducesResponseType(typeof(OrderDetail), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public ActionResult<OrderDetail> GetOrderDetail(long id)
         {
-            return "value";
+            OrderDetail returnValue = _orderDetailsBO.GetOrderDetail(id);
+            if(returnValue == null)
+            {
+                return NotFound();
+            }
+            return Ok(returnValue);
         }
 
         // POST: api/OrderDetails
