@@ -2,7 +2,7 @@
 
 namespace Product.ProductDetail.BusinessObjects.Models
 {
-    internal class ProductDetail
+    public class ProductDetail
     {
         public long Id { get; set; }
         public string SKU { get; set; }
