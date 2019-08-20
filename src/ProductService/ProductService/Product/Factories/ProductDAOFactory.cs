@@ -1,4 +1,5 @@
 ﻿using Product.Infrastructure.DbContexts;
+using Product.ProductDetail.DataAccessObjects;
 
 namespace Product.Factories
 {
@@ -9,6 +10,11 @@ namespace Product.Factories
         public ProductDAOFactory(ProductDbContext productDbContext)
         {
             _productDbContext = productDbContext;
+        }
+
+        public IProductDetailDAO CreateProductDetailDAO()
+        {
+            return new ProductDetailDAO(_productDbContext);
         }
     }
 }

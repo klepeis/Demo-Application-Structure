@@ -1,4 +1,6 @@
-﻿namespace Product.Factories
+﻿using Product.ProductDetail.BusinessObjects;
+
+namespace Product.Factories
 {
     internal class ProductBOFactory : IProductBOFactory
     {
@@ -7,6 +9,11 @@
         public ProductBOFactory(IProductDAOFactory productDAOFactory)
         {
             _productDAOFactory = productDAOFactory;
+        }
+
+        public IProductDetailBO CreateProductDetailBO()
+        {
+            return new ProductDetailBO(_productDAOFactory.CreateProductDetailDAO());
         }
     }
 }

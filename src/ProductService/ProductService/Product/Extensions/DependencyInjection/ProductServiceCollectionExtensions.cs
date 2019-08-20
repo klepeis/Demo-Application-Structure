@@ -2,6 +2,7 @@
 using Microsoft.Extensions.DependencyInjection;
 using Product.Factories;
 using Product.Infrastructure.DbContexts;
+using Product.ProductDetail.BusinessObjects;
 
 namespace Product.Extensions.DependencyInjection
 {
@@ -16,6 +17,11 @@ namespace Product.Extensions.DependencyInjection
 
             services.AddScoped<IProductDAOFactory, ProductDAOFactory>();
             services.AddScoped<IProductBOFactory, ProductBOFactory>();
+
+            services.AddScoped<IProductDetailBO>((sp) => 
+            {
+                return sp.GetRequiredService<IProductBOFactory>().CreateProductDetailBO();
+            });
 
             return services;
         }
