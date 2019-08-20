@@ -1,5 +1,7 @@
 ﻿using Customer.Profile.DataAccessObjects.Models;
+using System.Runtime.CompilerServices;
 
+[assembly: InternalsVisibleTo("Customer.Tests")]
 namespace Customer.Profile.DataAccessObjects
 {
     internal interface ICustomerProfileDAO

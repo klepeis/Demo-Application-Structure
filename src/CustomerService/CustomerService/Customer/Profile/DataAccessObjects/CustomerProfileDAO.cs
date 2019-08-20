@@ -1,8 +1,9 @@
 ﻿using Customer.Infrastructure.DbContexts;
 using Customer.Profile.DataAccessObjects.Models;
 using Microsoft.EntityFrameworkCore;
-using System.Threading.Tasks;
+using System.Runtime.CompilerServices;
 
+[assembly: InternalsVisibleTo("Customer.Tests")]
 namespace Customer.Profile.DataAccessObjects
 {
     internal class CustomerProfileDAO : ICustomerProfileDAO
