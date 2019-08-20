@@ -1,4 +1,5 @@
-﻿using Product.ProductDetail.BusinessObjects;
+﻿using Product.Inventory.BusinessObjects;
+using Product.ProductDetail.BusinessObjects;
 
 namespace Product.Factories
 {
@@ -9,6 +10,11 @@ namespace Product.Factories
         public ProductBOFactory(IProductDAOFactory productDAOFactory)
         {
             _productDAOFactory = productDAOFactory;
+        }
+
+        public IInventoryDetailBO CreateInventoryDetailBO()
+        {
+            return new InventoryDetailBO(_productDAOFactory.CreateInventoryDetailDAO());
         }
 
         public IProductDetailBO CreateProductDetailBO()

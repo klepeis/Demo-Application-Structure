@@ -1,4 +1,5 @@
 ﻿using Product.Infrastructure.DbContexts;
+using Product.Inventory.DataAccessObjects;
 using Product.ProductDetail.DataAccessObjects;
 
 namespace Product.Factories
@@ -10,6 +11,11 @@ namespace Product.Factories
         public ProductDAOFactory(ProductDbContext productDbContext)
         {
             _productDbContext = productDbContext;
+        }
+
+        public IInventoryDetailDAO CreateInventoryDetailDAO()
+        {
+            return new InventoryDetailDAO(_productDbContext);
         }
 
         public IProductDetailDAO CreateProductDetailDAO()
