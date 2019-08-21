@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Product.Inventory.BusinessObjects;
+using Product.Inventory.BusinessObjects.Models;
+using System.Collections.Generic;
 
 namespace Product.API.Controllers
 {
@@ -11,36 +10,62 @@ namespace Product.API.Controllers
     [ApiController]
     public class InventoryController : ControllerBase
     {
-        // GET: api/Inventory
-        [HttpGet]
-        public IEnumerable<string> Get()
+        private readonly IInventoryDetailBO _inventoryDetailBO;
+
+        public InventoryController(IInventoryDetailBO inventoryDetailBO)
         {
-            return new string[] { "value1", "value2" };
+            _inventoryDetailBO = inventoryDetailBO;
         }
+
+        //// GET: api/Inventory
+        //[HttpGet]
+        //public IEnumerable<string> Get()
+        //{
+        //    return new string[] { "value1", "value2" };
+        //}
 
         // GET: api/Inventory/5
         [HttpGet("{id}", Name = "Get")]
-        public string Get(int id)
+        [ProducesResponseType(typeof(InventoryDetail), StatusCodes.Status200OK)]
+        public ActionResult<InventoryDetail> GetInventoryDetails(int id)
         {
-            return "value";
+            return Ok(_inventoryDetailBO.GetInventoryDetail(id));
         }
 
         // POST: api/Inventory
         [HttpPost]
-        public void Post([FromBody] string value)
+        [ProducesResponseType(typeof(InventoryDetail), StatusCodes.Status201Created)]
+        public ActionResult<InventoryDetail> Post([FromBody] InventoryDetail inventoryDetailToAdd)
         {
+            InventoryDetail newInventoryDetail = _inventoryDetailBO.AddInventoryDetail(inventoryDetailToAdd);
+            return CreatedAtAction(nameof(GetInventoryDetails), new { id = newInventoryDetail.ProductId }, newInventoryDetail);
         }
 
         // PUT: api/Inventory/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        public ActionResult Put(int id, [FromBody]  InventoryDetail inventoryDetailToUpdate)
         {
+            if (id != inventoryDetailToUpdate.ProductId)
+            {
+                return BadRequest();
+            }
+
+            _inventoryDetailBO.UpdateInventoryDetail(inventoryDetailToUpdate);
+
+            return NoContent();
         }
 
         // DELETE: api/ApiWithActions/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public ActionResult Delete(int id)
         {
+            //Somehow return NotFound;
+            _inventoryDetailBO.DeleteInventoryDetail(id);
+
+            return NoContent();
         }
     }
 }

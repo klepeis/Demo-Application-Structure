@@ -5,9 +5,9 @@ namespace Product.Client.Inventory
 {
     public interface IInventoryClient
     {
-        Task<TResponse> AddCustomerProfileAsync<TResponse>(Object profileToAdd);
-        Task DeleteCustomerProfileAsync(long id);
-        Task<TResponse> GetCustomerProfileAsync<TResponse>(long id);
-        Task UpdateCustomerProfileAsync(long id, Object profileToUpdate);
+        Task<TResponse> AddInventoryDetailAsync<TResponse>(Object inventoryDetailToAdd);
+        Task DeleteInventoryDetailAsync(long id);
+        Task<TResponse> GetInventoryDetailAsync<TResponse>(long id);
+        Task UpdateInventoryDetailAsync(long id, Object inventoryDetailToUpdate);
     }
 }

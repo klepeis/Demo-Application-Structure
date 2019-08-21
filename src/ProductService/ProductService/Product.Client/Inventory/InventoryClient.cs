@@ -13,27 +13,27 @@ namespace Product.Client.Inventory
         {
         }
 
-        public async Task<TResponse> AddCustomerProfileAsync<TResponse>(Object profileToAdd)
+        public async Task<TResponse> AddInventoryDetailAsync<TResponse>(Object inventoryDetailToAdd)
         {
-            HttpRequestMessage request = CreateHttpRequestMessage(HttpMethod.Post, $"api/Profile", profileToAdd);
+            HttpRequestMessage request = CreateHttpRequestMessage(HttpMethod.Post, $"api/Inventory", inventoryDetailToAdd);
             return await SendHttpRequestMessageAsync<TResponse>(request);
         }
 
-        public async Task DeleteCustomerProfileAsync(long id)
+        public async Task DeleteInventoryDetailAsync(long id)
         {
-            HttpRequestMessage request = CreateHttpRequestMessage(HttpMethod.Delete, $"api/Profile/{id}");
+            HttpRequestMessage request = CreateHttpRequestMessage(HttpMethod.Delete, $"api/Inventory/{id}");
             await SendHttpRequestMessageAsync(request);
         }
 
-        public async Task<TResponse> GetCustomerProfileAsync<TResponse>(long id)
+        public async Task<TResponse> GetInventoryDetailAsync<TResponse>(long id)
         {
-            HttpRequestMessage request = CreateHttpRequestMessage(HttpMethod.Get, $"api/Profile/{id}");
+            HttpRequestMessage request = CreateHttpRequestMessage(HttpMethod.Get, $"api/Inventory/{id}");
             return await SendHttpRequestMessageAsync<TResponse>(request);
         }
 
-        public async Task UpdateCustomerProfileAsync(long id, Object profileToUpdate)
+        public async Task UpdateInventoryDetailAsync(long id, Object inventoryDetailToUpdate)
         {
-            HttpRequestMessage request = CreateHttpRequestMessage(HttpMethod.Put, $"api/Profile/{id}", profileToUpdate);
+            HttpRequestMessage request = CreateHttpRequestMessage(HttpMethod.Put, $"api/Inventory/{id}", inventoryDetailToUpdate);
             await SendHttpRequestMessageAsync(request);
         }
     }

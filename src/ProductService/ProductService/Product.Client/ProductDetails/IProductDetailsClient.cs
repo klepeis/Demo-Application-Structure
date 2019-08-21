@@ -5,9 +5,9 @@ namespace Product.Client.ProductDetails
 {
     public interface IProductDetailsClient
     {
-        Task<TResponse> AddCustomerProfileAsync<TResponse>(Object profileToAdd);
-        Task DeleteCustomerProfileAsync(long id);
-        Task<TResponse> GetCustomerProfileAsync<TResponse>(long id);
-        Task UpdateCustomerProfileAsync(long id, Object profileToUpdate);
+        Task<TResponse> AddProductAsync<TResponse>(Object profileToAdd);
+        Task DeleteProductAsync(long id);
+        Task<TResponse> GetProductAsync<TResponse>(long id);
+        Task UpdateProductAsync(long id, Object profileToUpdate);
     }
 }

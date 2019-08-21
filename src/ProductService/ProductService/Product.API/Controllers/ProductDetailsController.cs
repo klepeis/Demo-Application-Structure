@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Product.ProductDetail.BusinessObjects;
-using System.Collections.Generic;
 
 namespace Product.API.Controllers
 {
