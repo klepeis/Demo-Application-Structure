@@ -4,6 +4,7 @@ using Order.Customer.Extensions.DependencyInjection;
 using Order.Factories;
 using Order.Infrastructure.DbContexts;
 using Order.OrderDetails.BusinessObjects;
+using Order.Product.Extensions.DependencyInjection;
 
 namespace Order.Extensions.DependencyInjection
 {
@@ -12,6 +13,7 @@ namespace Order.Extensions.DependencyInjection
         public static IServiceCollection RegisterOrder(this IServiceCollection services)
         {
             services.RegisterOrderCustomer();
+            services.RegisterOrderProduct();
 
             services.AddDbContext<OrderDbContext>(opt => 
             {
