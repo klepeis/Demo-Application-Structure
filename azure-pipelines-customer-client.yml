@@ -19,7 +19,7 @@ steps:
   displayName: Build
   inputs:
     command: 'build'
-    projects:  'src/CustomerService/CustomerService/Customer.Client/Customer.Client.csproj'
+    projects:  'src/ProductService/ProductService/Product.Client/Product.Client.csproj'
     arguments: '--configuration $(buildConfiguration)'
 - task: DotNetCoreCLI@2
   displayName: Test
@@ -34,7 +34,7 @@ steps:
     command: 'pack'
     configuration: $(buildConfiguration)
     nobuild: true
-    packagesToPack: 'src/CustomerService/CustomerService/Customer.Client/Customer.Client.csproj'
+    packagesToPack: 'src/ProductService/ProductService/Product.Client/Product.Client.csproj'
 - task: DotNetCoreCLI@2 
   condition: and(succeeded(), ne(variables['Build.SourceBranch'], 'refs/heads/master'))
   displayName: Pack - Non-Master Branch
@@ -42,7 +42,7 @@ steps:
     command: 'pack'
     configuration: $(buildConfiguration)
     nobuild: true
-    packagesToPack: 'src/CustomerService/CustomerService/Customer.Client/Customer.Client.csproj'
+    packagesToPack: 'src/ProductService/ProductService/Product.Client/Product.Client.csproj'
     buildProperties: 'VersionSuffix="-pre"'
 - task: DotNetCoreCLI@2
   displayName: Local Artifact Push
