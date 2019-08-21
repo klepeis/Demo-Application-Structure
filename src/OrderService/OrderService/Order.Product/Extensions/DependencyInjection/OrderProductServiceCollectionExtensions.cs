@@ -1,4 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using Order.Product.Factories;
+using Order.Product.InventoryDetail.BusinessObjects;
 using Product.Client.Extensions.DependencyInjection;
 
 namespace Order.Product.Extensions.DependencyInjection
@@ -9,13 +11,13 @@ namespace Order.Product.Extensions.DependencyInjection
         {
             services.RegisterProductClient();
 
-            //services.AddScoped<IOrderCustomerDAOFactory, OrderCustomerDAOFactory>();
-            //services.AddScoped<IOrderCustomerBOFactory, OrderCustomerBOFactory>();
+            services.AddScoped<IOrderProductDAOFactory, OrderProductDAOFactory>();
+            services.AddScoped<IOrderProductBOFactory, OrderProductBOFactory>();
 
-            //services.AddScoped<ICustomerProfileBO>((sp) =>
-            //{
-            //    return sp.GetRequiredService<IOrderCustomerBOFactory>().CreateCustomerProfileBO();
-            //});
+            services.AddScoped<IInventoryDetailBO>((sp) =>
+            {
+                return sp.GetRequiredService<IOrderProductBOFactory>().CreateInventoryDetailBO();
+            });
 
             return services;
         }

@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Order.OrderDetails.BusinessObjects;
 using Order.OrderDetails.BusinessObjects.Models;
+using Order.Product.InventoryDetail.BusinessObjects;
 using System.Collections.Generic;
 
 namespace Order.API.Controllers
@@ -11,10 +12,12 @@ namespace Order.API.Controllers
     public class OrderDetailsController : ControllerBase
     {
         private readonly IOrderDetailsBO _orderDetailsBO;
+        private readonly IInventoryDetailBO _inventoryDetailBO;
 
-        public OrderDetailsController(IOrderDetailsBO orderDetailsBO)
+        public OrderDetailsController(IOrderDetailsBO orderDetailsBO, IInventoryDetailBO inventoryDetailBO)
         {
             _orderDetailsBO = orderDetailsBO;
+            _inventoryDetailBO = inventoryDetailBO;
         }
 
         // GET: api/OrderDetails
