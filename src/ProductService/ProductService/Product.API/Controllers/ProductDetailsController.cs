@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Product.ProductDetail.BusinessObjects;
+using System.Collections.Generic;
 
 namespace Product.API.Controllers
 {
@@ -11,36 +9,62 @@ namespace Product.API.Controllers
     [ApiController]
     public class ProductDetailsController : ControllerBase
     {
-        // GET: api/ProductDetails
-        [HttpGet]
-        public IEnumerable<string> Get()
+        private readonly IProductDetailBO _productDetailBO;
+
+        public ProductDetailsController(IProductDetailBO productDetailBO)
         {
-            return new string[] { "value1", "value2" };
+            _productDetailBO = productDetailBO;
         }
+
+        //// GET: api/ProductDetails
+        //[HttpGet]
+        //public IEnumerable<string> Get()
+        //{
+        //    return new string[] { "value1", "value2" };
+        //}
 
         // GET: api/ProductDetails/5
         [HttpGet("{id}", Name = "Get")]
-        public string Get(int id)
+        [ProducesResponseType(typeof(ProductDetail.BusinessObjects.Models.ProductDetail), StatusCodes.Status200OK)]
+        public ActionResult<ProductDetail.BusinessObjects.Models.ProductDetail> GetProductDetail(long id)
         {
-            return "value";
+            return Ok(_productDetailBO.GetProduct(id));
         }
 
         // POST: api/ProductDetails
         [HttpPost]
-        public void Post([FromBody] string value)
+        [ProducesResponseType(typeof(ProductDetail.BusinessObjects.Models.ProductDetail), StatusCodes.Status201Created)]
+        public ActionResult<ProductDetail.BusinessObjects.Models.ProductDetail> Post([FromBody] ProductDetail.BusinessObjects.Models.ProductDetail productToAdd)
         {
+            ProductDetail.BusinessObjects.Models.ProductDetail newProduct = _productDetailBO.AddProduct(productToAdd);
+            return CreatedAtAction(nameof(GetProductDetail), new { id = newProduct.Id }, newProduct);
         }
 
         // PUT: api/ProductDetails/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        public ActionResult Put(long id, [FromBody] ProductDetail.BusinessObjects.Models.ProductDetail productToUpdate)
         {
+            if (id != productToUpdate.Id)
+            {
+                return BadRequest();
+            }
+
+            _productDetailBO.UpdateProduct(productToUpdate);
+
+            return NoContent();
         }
 
         // DELETE: api/ApiWithActions/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public ActionResult Delete(long id)
         {
+            //Somehow return NotFound;
+            _productDetailBO.DeleteProduct(id);
+
+            return NoContent();
         }
     }
 }

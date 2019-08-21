@@ -29,13 +29,15 @@ namespace Customer.API.Controllers
 
         // GET: api/Profile/5
         [HttpGet("{id}", Name = "Get")]
+        [ProducesResponseType(typeof(CustomerProfile), StatusCodes.Status200OK)]
         public ActionResult<CustomerProfile> GetCustomerProfile(long id)
         {
-            return _customerProfileBO.GetProfile(id);
+            return Ok(_customerProfileBO.GetProfile(id));
         }
 
         // POST: api/Profile
         [HttpPost]
+        [ProducesResponseType(typeof(CustomerProfile), StatusCodes.Status201Created)]
         public ActionResult<CustomerProfile> Add([FromBody] CustomerProfile profileToAdd)
         {
             CustomerProfile newProfile = _customerProfileBO.AddProfile(profileToAdd);
@@ -44,6 +46,7 @@ namespace Customer.API.Controllers
 
         // PUT: api/Profile/5
         [HttpPut("{id}")]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
         public IActionResult Update(long id, [FromBody] CustomerProfile profileToUpdate)
         {
             if(id != profileToUpdate.Id)
@@ -58,6 +61,8 @@ namespace Customer.API.Controllers
 
         // DELETE: api/ApiWithActions/5
         [HttpDelete("{id}")]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         public IActionResult Delete(long id)
         {
             //Somehow return NotFound;
