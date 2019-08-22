@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Order.Product.Factories;
 using Order.Product.InventoryDetail.BusinessObjects;
+using Order.Product.ProductDetail.BusinessObjects;
 using Product.Client.Extensions.DependencyInjection;
 
 namespace Order.Product.Extensions.DependencyInjection
@@ -17,6 +18,11 @@ namespace Order.Product.Extensions.DependencyInjection
             services.AddScoped<IInventoryDetailBO>((sp) =>
             {
                 return sp.GetRequiredService<IOrderProductBOFactory>().CreateInventoryDetailBO();
+            });
+
+            services.AddScoped<IProductDetailBO>((sp) =>
+            {
+                return sp.GetRequiredService<IOrderProductBOFactory>().CreateProductDetailBO();
             });
 
             return services;
