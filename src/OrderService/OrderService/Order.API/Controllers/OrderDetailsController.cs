@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Order.Customer.Profile.BusinessObjects;
 using Order.OrderDetails.BusinessObjects;
 using Order.OrderDetails.BusinessObjects.Models;
 using Order.Product.InventoryDetail.BusinessObjects;
@@ -15,12 +16,14 @@ namespace Order.API.Controllers
         private readonly IOrderDetailsBO _orderDetailsBO;
         private readonly IInventoryDetailBO _inventoryDetailBO;
         private readonly IProductDetailBO _productDetailBO;
+        private readonly ICustomerProfileBO _customerProfileBO;
 
-        public OrderDetailsController(IOrderDetailsBO orderDetailsBO, IInventoryDetailBO inventoryDetailBO, IProductDetailBO productDetailBO)
+        public OrderDetailsController(IOrderDetailsBO orderDetailsBO, IInventoryDetailBO inventoryDetailBO, IProductDetailBO productDetailBO, ICustomerProfileBO customerProfileBO)
         {
             _orderDetailsBO = orderDetailsBO;
             _inventoryDetailBO = inventoryDetailBO;
             _productDetailBO = productDetailBO;
+            _customerProfileBO = customerProfileBO;
         }
 
         // GET: api/OrderDetails

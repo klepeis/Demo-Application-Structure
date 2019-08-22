@@ -3,7 +3,7 @@ using Order.Product.ProductDetail.BusinessObjects;
 
 namespace Order.Product.Factories
 {
-    internal interface IOrderProductBOFactory
+    public interface IOrderProductBOFactory
     {
         IInventoryDetailBO CreateInventoryDetailBO();
         IProductDetailBO CreateProductDetailBO();
