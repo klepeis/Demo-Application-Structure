@@ -1,6 +1,9 @@
 ﻿using Customer.Profile.BusinessObjects.Models;
 using Customer.Profile.DataAccessObjects;
+using System.Runtime.CompilerServices;
 
+[assembly: InternalsVisibleTo("Customer.Tests")]
+[assembly: InternalsVisibleTo("DynamicProxyGenAssembly2")]
 namespace Customer.Profile.BusinessObjects
 {
     internal class CustomerProfileBO : ICustomerProfileBO

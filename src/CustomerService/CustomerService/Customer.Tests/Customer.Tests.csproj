@@ -15,10 +15,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Profile\BusinessObjects\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\Customer\Customer.csproj" />
   </ItemGroup>
 

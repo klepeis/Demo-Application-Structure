@@ -1,4 +1,9 @@
-﻿namespace Customer.Profile.DataAccessObjects.Models
+﻿using System;
+using System.Runtime.CompilerServices;
+
+[assembly: InternalsVisibleTo("Customer.Tests")]
+[assembly: InternalsVisibleTo("DynamicProxyGenAssembly2")]
+namespace Customer.Profile.DataAccessObjects.Models
 {
     internal class CustomerProfile
     {
@@ -20,8 +25,8 @@
         public long Id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public string CreatedDate { get; set; }
-        public string ModifiedDate { get; set; }
+        public DateTime CreatedDate { get; set; }
+        public DateTime? ModifiedDate { get; set; }
 
         internal BusinessObjects.Models.CustomerProfile ConvertToBusinessModel()
         {
