@@ -1,6 +1,6 @@
 ﻿using Customer.Domain.Profile.BusinessObjects.DTOs;
 using Customer.Domain.Profile.DataAccessObjects;
-using Customer.Domain.Profile.DataAccessObjects.Models.Entity;
+using Customer.Domain.Profile.DataAccessObjects.Models.Entitys;
 using System.Runtime.CompilerServices;
 
 [assembly: InternalsVisibleTo("Customer.Tests")]

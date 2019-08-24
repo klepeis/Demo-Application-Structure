@@ -1,7 +1,7 @@
 ﻿using Customer.Domain.Profile.BusinessObjects;
 using Customer.Domain.Profile.BusinessObjects.DTOs;
 using Customer.Domain.Profile.DataAccessObjects;
-using Customer.Domain.Profile.DataAccessObjects.Models.Entity;
+using Customer.Domain.Profile.DataAccessObjects.Models.Entitys;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using System;

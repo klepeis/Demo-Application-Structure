@@ -1,4 +1,4 @@
-﻿using Customer.Domain.Profile.DataAccessObjects.Models.Entity;
+﻿using Customer.Domain.Profile.DataAccessObjects.Models.Entitys;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
