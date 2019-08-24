@@ -1,5 +1,5 @@
 ﻿using Customer.Domain.Infrastructure.EntityConfigurationsConfiguration;
-using Customer.Domain.Profile.DataAccessObjects.Models;
+using Customer.Domain.Profile.DataAccessObjects.Models.Entity;
 using Microsoft.EntityFrameworkCore;
 using System.Runtime.CompilerServices;
 
@@ -8,7 +8,7 @@ namespace Customer.Domain.Infrastructure
 {
     internal class CustomerDbContext : DbContext
     {
-        public DbSet<CustomerProfile> CustomerProfiles { get; set; }
+        public DbSet<CustomerProfileEntity> CustomerProfiles { get; set; }
 
         public CustomerDbContext() { }
 

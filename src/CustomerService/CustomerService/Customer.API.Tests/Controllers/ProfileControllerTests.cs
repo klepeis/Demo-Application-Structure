@@ -1,6 +1,6 @@
 ﻿using Customer.API.Controllers;
 using Customer.Domain.Profile.BusinessObjects;
-using Customer.Domain.Profile.BusinessObjects.Models;
+using Customer.Domain.Profile.BusinessObjects.DTOs;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
@@ -12,13 +12,31 @@ namespace Customer.API.Tests.Controllers
     [TestClass]
     public class ProfileControllerTests
     {
+        #region ProfileController
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentNullException))]
+        public void ProfileController_Instantiation_ConstructorParameterNull_ThrowArgumentNullException()
+        {
+            // Arrange
+            ICustomerProfileBO customerProfileBO = null;
+
+            // Act
+            ProfileController controller = new ProfileController(customerProfileBO);
+
+            // Assert
+            // Assertion is done via ExpectedException attribute.
+        }
+
+        #endregion
+
         #region GetCustomerProfile
 
         [TestMethod]
         public void GetCustomerProfile_Success200Ok()
         {
             // Arrange
-            CustomerProfile expectedContent = new CustomerProfile()
+            CustomerProfileDTO expectedContent = new CustomerProfileDTO()
             {
                 CreatedDate = DateTime.Now,
                 FirstName = "Test",
@@ -33,13 +51,13 @@ namespace Customer.API.Tests.Controllers
 
             // Act
             ProfileController controller = new ProfileController(mockCustomerProfileBO.Object);
-            ActionResult<CustomerProfile> response = controller.GetCustomerProfile(It.IsAny<long>());
+            ActionResult<CustomerProfileDTO> response = controller.GetCustomerProfile(It.IsAny<long>());
 
             // Assert
             var actualStatusCode = (response.Result as ObjectResult).StatusCode;
             Assert.AreEqual((int)HttpStatusCode.OK, actualStatusCode);
 
-            var actualContent = (CustomerProfile)Convert.ChangeType((response.Result as ObjectResult)?.Value, typeof(CustomerProfile));
+            var actualContent = (CustomerProfileDTO)Convert.ChangeType((response.Result as ObjectResult)?.Value, typeof(CustomerProfileDTO));
             Assert.AreEqual(expectedContent, actualContent);
         }
 
@@ -52,7 +70,7 @@ namespace Customer.API.Tests.Controllers
         {
 
             // Arrange
-            CustomerProfile expectedContent = new CustomerProfile()
+            CustomerProfileDTO expectedContent = new CustomerProfileDTO()
             {
                 CreatedDate = DateTime.Now,
                 FirstName = "Test",
@@ -62,12 +80,12 @@ namespace Customer.API.Tests.Controllers
             };
 
             Mock<ICustomerProfileBO> mockCustomerProfileBO = new Mock<ICustomerProfileBO>();
-            mockCustomerProfileBO.Setup(m => m.AddProfile(It.IsAny<CustomerProfile>()))
+            mockCustomerProfileBO.Setup(m => m.AddProfile(It.IsAny<CustomerProfileDTO>()))
                 .Returns(expectedContent);
 
             // Act
             ProfileController controller = new ProfileController(mockCustomerProfileBO.Object);
-            ActionResult<CustomerProfile> response = controller.AddCustomerProfile(new CustomerProfile
+            ActionResult<CustomerProfileDTO> response = controller.AddCustomerProfile(new CustomerProfileDTO
             {
                 FirstName = "Test",
                 LastName = "User"
@@ -77,7 +95,7 @@ namespace Customer.API.Tests.Controllers
             var actualStatusCode = (response.Result as ObjectResult).StatusCode;
             Assert.AreEqual((int)HttpStatusCode.Created, actualStatusCode);
 
-            var actualContent = (CustomerProfile)Convert.ChangeType((response.Result as ObjectResult)?.Value, typeof(CustomerProfile));
+            var actualContent = (CustomerProfileDTO)Convert.ChangeType((response.Result as ObjectResult)?.Value, typeof(CustomerProfileDTO));
             Assert.AreEqual(expectedContent, actualContent);
         }
 
@@ -89,7 +107,7 @@ namespace Customer.API.Tests.Controllers
         public void UpdateCustomerProfile_Success204NoContent()
         {
             // Arrange
-            CustomerProfile expectedContent = new CustomerProfile()
+            CustomerProfileDTO expectedContent = new CustomerProfileDTO()
             {
                 CreatedDate = DateTime.Now,
                 FirstName = "Test",
@@ -99,12 +117,12 @@ namespace Customer.API.Tests.Controllers
             };
 
             Mock<ICustomerProfileBO> mockCustomerProfileBO = new Mock<ICustomerProfileBO>();
-            mockCustomerProfileBO.Setup(m => m.UpdateProfile(It.IsAny<CustomerProfile>()))
+            mockCustomerProfileBO.Setup(m => m.UpdateProfile(It.IsAny<CustomerProfileDTO>()))
                 .Returns(expectedContent);
 
             // Act
             ProfileController controller = new ProfileController(mockCustomerProfileBO.Object);
-            ActionResult response = controller.UpdateCustomerProfile(123, new CustomerProfile()
+            ActionResult response = controller.UpdateCustomerProfile(123, new CustomerProfileDTO()
             {
                 FirstName = "Test",
                 Id = 123,
@@ -120,7 +138,7 @@ namespace Customer.API.Tests.Controllers
         public void UpdateCustomerProfile_Success400BadRequest()
         {
             // Arrange
-            CustomerProfile expectedContent = new CustomerProfile()
+            CustomerProfileDTO expectedContent = new CustomerProfileDTO()
             {
                 CreatedDate = DateTime.Now,
                 FirstName = "Test",
@@ -130,12 +148,12 @@ namespace Customer.API.Tests.Controllers
             };
 
             Mock<ICustomerProfileBO> mockCustomerProfileBO = new Mock<ICustomerProfileBO>();
-            mockCustomerProfileBO.Setup(m => m.UpdateProfile(It.IsAny<CustomerProfile>()))
+            mockCustomerProfileBO.Setup(m => m.UpdateProfile(It.IsAny<CustomerProfileDTO>()))
                 .Returns(expectedContent);
 
             // Act
             ProfileController controller = new ProfileController(mockCustomerProfileBO.Object);
-            ActionResult response = controller.UpdateCustomerProfile(123, new CustomerProfile()
+            ActionResult response = controller.UpdateCustomerProfile(123, new CustomerProfileDTO()
             {
                 FirstName = "Test",
                 Id = 999,

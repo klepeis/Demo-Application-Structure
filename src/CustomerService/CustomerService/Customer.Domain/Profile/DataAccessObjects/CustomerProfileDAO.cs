@@ -1,5 +1,5 @@
 ﻿using Customer.Domain.Infrastructure;
-using Customer.Domain.Profile.DataAccessObjects.Models;
+using Customer.Domain.Profile.DataAccessObjects.Models.Entity;
 using Microsoft.EntityFrameworkCore;
 using System.Runtime.CompilerServices;
 
@@ -21,7 +21,7 @@ namespace Customer.Domain.Profile.DataAccessObjects
         /// </summary>
         /// <param name="profileToAdd">Customer profile to add.</param>
         /// <returns>Customer Profile that was added.</returns>
-        public CustomerProfile AddProfile(CustomerProfile profileToAdd)
+        public CustomerProfileEntity AddProfile(CustomerProfileEntity profileToAdd)
         {
             _customerDbContext.CustomerProfiles.Add(profileToAdd);
             _customerDbContext.SaveChanges();
@@ -32,7 +32,7 @@ namespace Customer.Domain.Profile.DataAccessObjects
         /// Delete a Customer Profile.
         /// </summary>
         /// <param name="profileToDelete">Profile to delete</param>
-        public void DeleteProfile(CustomerProfile profileToDelete)
+        public void DeleteProfile(CustomerProfileEntity profileToDelete)
         {
             _customerDbContext.CustomerProfiles.Remove(profileToDelete);
             _customerDbContext.SaveChanges();
@@ -43,7 +43,7 @@ namespace Customer.Domain.Profile.DataAccessObjects
         /// </summary>
         /// <param name="id">Customer Profile Id</param>
         /// <returns>Customer Profile if found, NULL if no profile located.</returns>
-        public CustomerProfile GetProfile(long id)
+        public CustomerProfileEntity GetProfile(long id)
         {
             return _customerDbContext.CustomerProfiles.Find(id);
         }
@@ -53,7 +53,7 @@ namespace Customer.Domain.Profile.DataAccessObjects
         /// </summary>
         /// <param name="updatedProfile"></param>
         /// <returns></returns>
-        public CustomerProfile UpdateProfile(CustomerProfile updatedProfile)
+        public CustomerProfileEntity UpdateProfile(CustomerProfileEntity updatedProfile)
         {
             _customerDbContext.Entry(updatedProfile).State = EntityState.Modified;
             _customerDbContext.SaveChanges();

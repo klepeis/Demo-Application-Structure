@@ -1,6 +1,6 @@
 ﻿using Customer.Domain.Infrastructure;
 using Customer.Domain.Profile.DataAccessObjects;
-using Customer.Domain.Profile.DataAccessObjects.Models;
+using Customer.Domain.Profile.DataAccessObjects.Models.Entity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -19,7 +19,7 @@ namespace Customer.Domain.Tests.Profile.DataAccessObjects
                 .UseInMemoryDatabase(databaseName: "CustomerProfileDb")
                 .Options;
 
-            CustomerProfile customerProfile = new CustomerProfile()
+            CustomerProfileEntity customerProfile = new CustomerProfileEntity()
             {
                 FirstName = "Test",
                 LastName = "User"
@@ -35,7 +35,7 @@ namespace Customer.Domain.Tests.Profile.DataAccessObjects
             }
 
             // Assert
-            CustomerProfile actual = null;
+            CustomerProfileEntity actual = null;
             using (var context = new CustomerDbContext(contextOptions))
             {
                 ICustomerProfileDAO customerProfileDAO = new CustomerProfileDAO(context);
@@ -58,7 +58,7 @@ namespace Customer.Domain.Tests.Profile.DataAccessObjects
                 .UseInMemoryDatabase(databaseName: "CustomerProfileDb")
                 .Options;
 
-            CustomerProfile customerProfile = new CustomerProfile()
+            CustomerProfileEntity customerProfile = new CustomerProfileEntity()
             {
                 FirstName = "Test",
                 LastName = "User"
@@ -73,11 +73,11 @@ namespace Customer.Domain.Tests.Profile.DataAccessObjects
             }
 
             // Act
-            CustomerProfile actual;
+            CustomerProfileEntity actual;
             using (var context = new CustomerDbContext(contextOptions))
             {
                 ICustomerProfileDAO customerProfileDAO = new CustomerProfileDAO(context);
-                CustomerProfile customerProfileToDelete = customerProfileDAO.GetProfile(customerId);
+                CustomerProfileEntity customerProfileToDelete = customerProfileDAO.GetProfile(customerId);
                 customerProfileDAO.DeleteProfile(customerProfileToDelete);
 
                 actual = customerProfileDAO.GetProfile(customerId);
@@ -99,7 +99,7 @@ namespace Customer.Domain.Tests.Profile.DataAccessObjects
                 .UseInMemoryDatabase(databaseName: "CustomerProfileDb")
                 .Options;
 
-            CustomerProfile customerProfile = new CustomerProfile()
+            CustomerProfileEntity customerProfile = new CustomerProfileEntity()
             {
                 FirstName = "Test",
                 LastName = "User"
@@ -114,7 +114,7 @@ namespace Customer.Domain.Tests.Profile.DataAccessObjects
             }
 
             // Act
-            CustomerProfile actual = null;
+            CustomerProfileEntity actual = null;
             using (var context = new CustomerDbContext(contextOptions))
             {
                 ICustomerProfileDAO customerProfileDAO = new CustomerProfileDAO(context);
@@ -134,7 +134,7 @@ namespace Customer.Domain.Tests.Profile.DataAccessObjects
                 .UseInMemoryDatabase(databaseName: "CustomerProfileDb")
                 .Options;
 
-            CustomerProfile customerProfile = new CustomerProfile()
+            CustomerProfileEntity customerProfile = new CustomerProfileEntity()
             {
                 FirstName = "Test",
                 LastName = "User"
@@ -149,7 +149,7 @@ namespace Customer.Domain.Tests.Profile.DataAccessObjects
             }
 
             // Act
-            CustomerProfile actual = null;
+            CustomerProfileEntity actual = null;
             using (var context = new CustomerDbContext(contextOptions))
             {
                 ICustomerProfileDAO customerProfileDAO = new CustomerProfileDAO(context);
@@ -172,7 +172,7 @@ namespace Customer.Domain.Tests.Profile.DataAccessObjects
                 .UseInMemoryDatabase(databaseName: "CustomerProfileDb")
                 .Options;
 
-            CustomerProfile customerProfile = new CustomerProfile()
+            CustomerProfileEntity customerProfile = new CustomerProfileEntity()
             {
                 FirstName = "Test",
                 LastName = "User"
@@ -180,21 +180,21 @@ namespace Customer.Domain.Tests.Profile.DataAccessObjects
 
             // Act
             long customerId;
-            CustomerProfile expected;
+            CustomerProfileEntity expected;
             using (var context = new CustomerDbContext(contextOptions))
             {
                 ICustomerProfileDAO customerProfileDAO = new CustomerProfileDAO(context);
                 var addedProfile = customerProfileDAO.AddProfile(customerProfile);
                 customerId = addedProfile.Id;
 
-                CustomerProfile profileToUpdate = addedProfile;
+                CustomerProfileEntity profileToUpdate = addedProfile;
                 profileToUpdate.LastName = "Updated";
 
                 expected = customerProfileDAO.UpdateProfile(profileToUpdate);
             }
 
             // Assert
-            CustomerProfile actual = null;
+            CustomerProfileEntity actual = null;
             using (var context = new CustomerDbContext(contextOptions))
             {
                 ICustomerProfileDAO customerProfileDAO = new CustomerProfileDAO(context);

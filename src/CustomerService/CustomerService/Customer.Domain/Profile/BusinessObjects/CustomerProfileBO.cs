@@ -1,5 +1,6 @@
-﻿using Customer.Domain.Profile.BusinessObjects.Models;
+﻿using Customer.Domain.Profile.BusinessObjects.DTOs;
 using Customer.Domain.Profile.DataAccessObjects;
+using Customer.Domain.Profile.DataAccessObjects.Models.Entity;
 using System.Runtime.CompilerServices;
 
 [assembly: InternalsVisibleTo("Customer.Tests")]
@@ -20,10 +21,10 @@ namespace Customer.Domain.Profile.BusinessObjects
         /// </summary>
         /// <param name="profileToAdd">Customer profile to add.</param>
         /// <returns>Customer Profile that was added.</returns>
-        public CustomerProfile AddProfile(CustomerProfile profileToAdd)
+        public CustomerProfileDTO AddProfile(CustomerProfileDTO profileToAdd)
         {
-            return _customerProfileDAO.AddProfile(new DataAccessObjects.Models.CustomerProfile(profileToAdd))
-                                      .ConvertToBusinessModel();
+            return _customerProfileDAO.AddProfile(new CustomerProfileEntity(profileToAdd))
+                                      .ConvertToDTO();
         }
 
         /// <summary>
@@ -47,7 +48,7 @@ namespace Customer.Domain.Profile.BusinessObjects
         /// </summary>
         /// <param name="id">Customer Profile Id</param>
         /// <returns>Customer Profile if found, NULL if no profile located.</returns>
-        public CustomerProfile GetProfile(long id)
+        public CustomerProfileDTO GetProfile(long id)
         {
             var result = _customerProfileDAO.GetProfile(id);
 
@@ -56,7 +57,7 @@ namespace Customer.Domain.Profile.BusinessObjects
                 return null;
             }
 
-            return result.ConvertToBusinessModel();
+            return result.ConvertToDTO();
         }
 
         /// <summary>
@@ -64,10 +65,10 @@ namespace Customer.Domain.Profile.BusinessObjects
         /// </summary>
         /// <param name="updatedProfile"></param>
         /// <returns></returns>
-        public CustomerProfile UpdateProfile(CustomerProfile updatedProfile)
+        public CustomerProfileDTO UpdateProfile(CustomerProfileDTO updatedProfile)
         {
-            return _customerProfileDAO.UpdateProfile(new DataAccessObjects.Models.CustomerProfile(updatedProfile))
-                                      .ConvertToBusinessModel();
+            return _customerProfileDAO.UpdateProfile(new CustomerProfileEntity(updatedProfile))
+                                      .ConvertToDTO();
         }
     }
 }

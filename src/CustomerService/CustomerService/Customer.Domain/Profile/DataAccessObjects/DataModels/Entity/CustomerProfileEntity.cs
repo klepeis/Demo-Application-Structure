@@ -1,13 +1,14 @@
-﻿using System;
+﻿using Customer.Domain.Profile.BusinessObjects.DTOs;
+using System;
 using System.Runtime.CompilerServices;
 
 [assembly: InternalsVisibleTo("Customer.Tests")]
 [assembly: InternalsVisibleTo("DynamicProxyGenAssembly2")]
-namespace Customer.Domain.Profile.DataAccessObjects.Models
+namespace Customer.Domain.Profile.DataAccessObjects.Models.Entity
 {
-    internal class CustomerProfile
+    internal class CustomerProfileEntity
     {
-        public CustomerProfile()
+        public CustomerProfileEntity()
         {
         }
 
@@ -15,7 +16,7 @@ namespace Customer.Domain.Profile.DataAccessObjects.Models
         /// Constructor used to convert a Business CustomerProfile model to a DataAccess CustomerProfile model.
         /// </summary>
         /// <param name="customerProfile">Business Model</param>
-        public CustomerProfile(BusinessObjects.Models.CustomerProfile customerProfile)
+        public CustomerProfileEntity(CustomerProfileDTO customerProfile)
         {
             this.FirstName = customerProfile.FirstName;
             this.Id = customerProfile.Id;
@@ -28,9 +29,9 @@ namespace Customer.Domain.Profile.DataAccessObjects.Models
         public DateTime CreatedDate { get; set; }
         public DateTime? ModifiedDate { get; set; }
 
-        internal BusinessObjects.Models.CustomerProfile ConvertToBusinessModel()
+        internal CustomerProfileDTO ConvertToDTO()
         {
-            return new BusinessObjects.Models.CustomerProfile()
+            return new CustomerProfileDTO()
             {
                 CreatedDate = this.CreatedDate,
                 ModifiedDate = this.ModifiedDate,

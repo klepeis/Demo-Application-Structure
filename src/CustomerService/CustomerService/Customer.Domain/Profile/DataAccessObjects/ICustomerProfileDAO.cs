@@ -1,4 +1,4 @@
-﻿using Customer.Domain.Profile.DataAccessObjects.Models;
+﻿using Customer.Domain.Profile.DataAccessObjects.Models.Entity;
 using System.Runtime.CompilerServices;
 
 [assembly: InternalsVisibleTo("Customer.Tests")]
@@ -12,26 +12,26 @@ namespace Customer.Domain.Profile.DataAccessObjects
         /// </summary>
         /// <param name="profileToAdd">Customer profile to add.</param>
         /// <returns>Customer Profile that was added.</returns>
-        CustomerProfile AddProfile(CustomerProfile profileToAdd);
+        CustomerProfileEntity AddProfile(CustomerProfileEntity profileToAdd);
 
         /// <summary>
         /// Delete a Customer Profile.
         /// </summary>
         /// <param name="profileToDelete">Profile to delete</param>
-        void DeleteProfile(CustomerProfile profileToDelete);
+        void DeleteProfile(CustomerProfileEntity profileToDelete);
 
         /// <summary>
         /// Retrieve a customer profile by Id.
         /// </summary>
         /// <param name="id">Customer Profile Id</param>
         /// <returns>Customer Profile if found, NULL if no profile located.</returns>
-        CustomerProfile GetProfile(long id);
+        CustomerProfileEntity GetProfile(long id);
 
         /// <summary>
         /// Update an existing profile.
         /// </summary>
         /// <param name="updatedProfile"></param>
         /// <returns></returns>
-        CustomerProfile UpdateProfile(CustomerProfile updatedProfile);
+        CustomerProfileEntity UpdateProfile(CustomerProfileEntity updatedProfile);
     }
 }
