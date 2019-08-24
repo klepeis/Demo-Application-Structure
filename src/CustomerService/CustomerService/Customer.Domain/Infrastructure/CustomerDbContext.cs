@@ -1,4 +1,5 @@
-﻿using Customer.Domain.Profile.DataAccessObjects.Models;
+﻿using Customer.Domain.Infrastructure.EntityConfigurationsConfiguration;
+using Customer.Domain.Profile.DataAccessObjects.Models;
 using Microsoft.EntityFrameworkCore;
 using System.Runtime.CompilerServices;
 
@@ -17,12 +18,7 @@ namespace Customer.Domain.Infrastructure
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            #region dbo.CustomerProfiles
-
-            modelBuilder.Entity<CustomerProfile>()
-                .HasKey(e => e.Id);
-
-            #endregion
+            modelBuilder.ApplyConfiguration(new CustomerProfileTypeConfiguration());
         }
     }
 }

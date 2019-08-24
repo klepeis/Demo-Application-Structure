@@ -6,10 +6,7 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="2.2.6" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Infrastructure\EntityConfigurationsConfiguration\" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="2.2.6" />
   </ItemGroup>
 
 </Project>
