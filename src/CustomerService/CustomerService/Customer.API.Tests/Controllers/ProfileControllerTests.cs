@@ -1,6 +1,6 @@
 ﻿using Customer.API.Controllers;
-using Customer.Profile.BusinessObjects;
-using Customer.Profile.BusinessObjects.Models;
+using Customer.Domain.Profile.BusinessObjects;
+using Customer.Domain.Profile.BusinessObjects.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;

@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.29201.188
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Customer.API", "Customer.API\Customer.API.csproj", "{CE4ECDA6-A811-4E47-9031-36F3FBDA6EFF}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Customer", "Customer\Customer.csproj", "{D5AA08C9-8230-46E0-924D-6B0242903E45}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Customer.Domain", "Customer.Domain\Customer.Domain.csproj", "{D5AA08C9-8230-46E0-924D-6B0242903E45}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Customer.Client", "Customer.Client\Customer.Client.csproj", "{568E68C3-AACC-499D-928B-A6B2A1639F4D}"
 EndProject
@@ -13,7 +13,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Client - NuGet", "Client - 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Service", "Service", "{1BDF32F9-3650-4404-8892-18A75B20A872}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Customer.Tests", "Customer.Tests\Customer.Tests.csproj", "{43126B5F-2642-471B-90AD-DF76225B32AF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Customer.Domain.Tests", "Customer.Domain.Tests\Customer.Domain.Tests.csproj", "{43126B5F-2642-471B-90AD-DF76225B32AF}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{1E73FB9A-26CC-4B39-A338-D10EEF1E1FEF}"
 EndProject

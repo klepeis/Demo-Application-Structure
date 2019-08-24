@@ -1,4 +1,4 @@
-﻿using Customer.Extensions.DependencyInjection;
+﻿using Customer.Domain.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -21,7 +21,7 @@ namespace Customer.API
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
-            services.RegisterCustomer();
+            services.RegisterCustomerDomain();
 
             // Register the Swagger services
             services.AddSwaggerDocument();
