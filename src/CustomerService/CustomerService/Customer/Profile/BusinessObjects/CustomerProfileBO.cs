@@ -49,8 +49,14 @@ namespace Customer.Profile.BusinessObjects
         /// <returns>Customer Profile if found, NULL if no profile located.</returns>
         public CustomerProfile GetProfile(long id)
         {
-            return _customerProfileDAO.GetProfile(id)
-                                      .ConvertToBusinessModel();
+            var result = _customerProfileDAO.GetProfile(id);
+
+            if(result == null)
+            {
+                return null;
+            }
+
+            return result.ConvertToBusinessModel();
         }
 
         /// <summary>

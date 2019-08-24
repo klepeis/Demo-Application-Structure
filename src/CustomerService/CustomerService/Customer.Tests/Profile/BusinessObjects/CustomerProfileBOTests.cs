@@ -1,10 +1,10 @@
-﻿using Customer.Infrastructure.DbContexts;
-using Customer.Profile.BusinessObjects;
+﻿using Customer.Profile.BusinessObjects;
 using Customer.Profile.BusinessObjects.Models;
 using Customer.Profile.DataAccessObjects;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using System;
+using ProfileDataAccess = Customer.Profile.DataAccessObjects;
 
 namespace Customer.Tests.Profile.BusinessObjects
 {
@@ -17,7 +17,7 @@ namespace Customer.Tests.Profile.BusinessObjects
         public void AddProfile_Success()
         {
             // Arrange
-            Customer.Profile.DataAccessObjects.Models.CustomerProfile seedData = new Customer.Profile.DataAccessObjects.Models.CustomerProfile()
+            ProfileDataAccess.Models.CustomerProfile seedData = new ProfileDataAccess.Models.CustomerProfile()
             {
                 CreatedDate = DateTime.Now,
                 FirstName = "Test",
@@ -27,7 +27,7 @@ namespace Customer.Tests.Profile.BusinessObjects
             };
 
             Mock<ICustomerProfileDAO> mockCustomerProfileDAO = new Mock<ICustomerProfileDAO>();
-            mockCustomerProfileDAO.Setup(m => m.AddProfile(It.IsAny<Customer.Profile.DataAccessObjects.Models.CustomerProfile>()))
+            mockCustomerProfileDAO.Setup(m => m.AddProfile(It.IsAny<ProfileDataAccess.Models.CustomerProfile>()))
                 .Returns(seedData);
 
             // Act
@@ -70,124 +70,95 @@ namespace Customer.Tests.Profile.BusinessObjects
 
         #endregion
 
-        //#region GetProfile
+        #region GetProfile
 
-        //[TestMethod]
-        //public void GetProfile_Success()
-        //{
-        //    // Arrange
-        //    var contextOptions = new DbContextOptionsBuilder<CustomerDbContext>()
-        //        .UseInMemoryDatabase(databaseName: "CustomerProfileDb")
-        //        .Options;
+        [TestMethod]
+        public void GetProfile_Success()
+        {
+            // Arrange
+            Customer.Profile.DataAccessObjects.Models.CustomerProfile seedData = new Customer.Profile.DataAccessObjects.Models.CustomerProfile()
+            {
+                CreatedDate = DateTime.Now,
+                FirstName = "Test",
+                Id = 123,
+                LastName = "User",
+                ModifiedDate = DateTime.Now
+            };
 
-        //    CustomerProfile customerProfile = new CustomerProfile()
-        //    {
-        //        FirstName = "Test",
-        //        LastName = "User"
-        //    };
+            Mock<ICustomerProfileDAO> mockCustomerProfileDAO = new Mock<ICustomerProfileDAO>();
+            mockCustomerProfileDAO.Setup(m => m.GetProfile(It.IsAny<long>()))
+                .Returns(seedData);
 
-        //    long customerId;
-        //    using (var context = new CustomerDbContext(contextOptions))
-        //    {
-        //        ICustomerProfileDAO customerProfileDAO = new CustomerProfileDAO(context);
-        //        var addedProfile = customerProfileDAO.AddProfile(customerProfile);
-        //        customerId = addedProfile.Id;
-        //    }
+            // Act
+            CustomerProfileBO customerProfileBO = new CustomerProfileBO(mockCustomerProfileDAO.Object);
+            CustomerProfile actual = customerProfileBO.GetProfile(123);
 
-        //    // Act
-        //    CustomerProfile actual = null;
-        //    using (var context = new CustomerDbContext(contextOptions))
-        //    {
-        //        ICustomerProfileDAO customerProfileDAO = new CustomerProfileDAO(context);
-        //        actual = customerProfileDAO.GetProfile(customerId);
-        //    }
+            // Assert
+            CustomerProfile expected = seedData.ConvertToBusinessModel();
 
-        //    // Assert
-        //    Assert.AreEqual(customerProfile.FirstName, actual.FirstName);
-        //    Assert.AreEqual(customerProfile.LastName, actual.LastName);
-        //}
+            Assert.AreEqual(expected.CreatedDate, actual.CreatedDate);
+            Assert.AreEqual(expected.FirstName, actual.FirstName);
+            Assert.AreEqual(expected.Id, actual.Id);
+            Assert.AreEqual(expected.LastName, actual.LastName);
+        }
 
-        //[TestMethod]
-        //public void GetProfile_NotFound_ReturnNull()
-        //{
-        //    // Arrange
-        //    var contextOptions = new DbContextOptionsBuilder<CustomerDbContext>()
-        //        .UseInMemoryDatabase(databaseName: "CustomerProfileDb")
-        //        .Options;
+        [TestMethod]
+        public void GetProfile_NotFound_ReturnNull()
+        {
+            // Arrange
+            Mock<ICustomerProfileDAO> mockCustomerProfileDAO = new Mock<ICustomerProfileDAO>();
+            mockCustomerProfileDAO.Setup(m => m.GetProfile(It.IsAny<long>()))
+                    .Returns((ProfileDataAccess.Models.CustomerProfile)null);
 
-        //    CustomerProfile customerProfile = new CustomerProfile()
-        //    {
-        //        FirstName = "Test",
-        //        LastName = "User"
-        //    };
+            // Act
+            CustomerProfileBO customerProfileBO = new CustomerProfileBO(mockCustomerProfileDAO.Object);
+            CustomerProfile actual = customerProfileBO.GetProfile(It.IsAny<long>());
 
-        //    long customerId;
-        //    using (var context = new CustomerDbContext(contextOptions))
-        //    {
-        //        ICustomerProfileDAO customerProfileDAO = new CustomerProfileDAO(context);
-        //        var addedProfile = customerProfileDAO.AddProfile(customerProfile);
-        //        customerId = addedProfile.Id;
-        //    }
+            // Assert
+            Assert.IsNull(actual);
+        }
 
-        //    // Act
-        //    CustomerProfile actual = null;
-        //    using (var context = new CustomerDbContext(contextOptions))
-        //    {
-        //        ICustomerProfileDAO customerProfileDAO = new CustomerProfileDAO(context);
-        //        actual = customerProfileDAO.GetProfile(customerId + 1);
-        //    }
+        #endregion
 
-        //    // Assert
-        //    Assert.IsNull(actual);
-        //}
+        #region UpdateProfile
 
-        //#endregion
+        [TestMethod]
+        public void UpdateProfile_Success()
+        {
+            // Arrange
+            ProfileDataAccess.Models.CustomerProfile seedData = new ProfileDataAccess.Models.CustomerProfile()
+            {
+                CreatedDate = DateTime.Now,
+                FirstName = "Test",
+                Id = 123,
+                LastName = "User",
+                ModifiedDate = DateTime.Now
+            };
 
-        //#region UpdateProfile
+            Mock<ICustomerProfileDAO> mockCustomerProfileDAO = new Mock<ICustomerProfileDAO>();
+            mockCustomerProfileDAO.Setup(m => m.UpdateProfile(It.IsAny<ProfileDataAccess.Models.CustomerProfile>()))
+                .Returns(seedData);
 
-        //[TestMethod]
-        //public void UpdateProfile_Success()
-        //{
-        //    // Arrange
-        //    var contextOptions = new DbContextOptionsBuilder<CustomerDbContext>()
-        //        .UseInMemoryDatabase(databaseName: "CustomerProfileDb")
-        //        .Options;
+            // Act
+            CustomerProfileBO customerProfileBO = new CustomerProfileBO(mockCustomerProfileDAO.Object);
+            CustomerProfile actual = customerProfileBO.UpdateProfile(new CustomerProfile()
+            {
+                FirstName = "Test",
+                Id = 123,
+                LastName = "User",
+                ModifiedDate = DateTime.Now.AddDays(-1)
+            });
 
-        //    CustomerProfile customerProfile = new CustomerProfile()
-        //    {
-        //        FirstName = "Test",
-        //        LastName = "User"
-        //    };
+            // Assert
+            CustomerProfile expected = seedData.ConvertToBusinessModel();
 
-        //    // Act
-        //    long customerId;
-        //    CustomerProfile expected;
-        //    using (var context = new CustomerDbContext(contextOptions))
-        //    {
-        //        ICustomerProfileDAO customerProfileDAO = new CustomerProfileDAO(context);
-        //        var addedProfile = customerProfileDAO.AddProfile(customerProfile);
-        //        customerId = addedProfile.Id;
+            Assert.AreEqual(expected.CreatedDate, actual.CreatedDate);
+            Assert.AreEqual(expected.ModifiedDate, actual.ModifiedDate);
+            Assert.AreEqual(expected.FirstName, actual.FirstName);
+            Assert.AreEqual(expected.Id, actual.Id);
+            Assert.AreEqual(expected.LastName, actual.LastName);
+        }
 
-        //        CustomerProfile profileToUpdate = addedProfile;
-        //        profileToUpdate.LastName = "Updated";
-
-        //        expected = customerProfileDAO.UpdateProfile(profileToUpdate);
-        //    }
-
-        //    // Assert
-        //    CustomerProfile actual = null;
-        //    using (var context = new CustomerDbContext(contextOptions))
-        //    {
-        //        ICustomerProfileDAO customerProfileDAO = new CustomerProfileDAO(context);
-        //        actual = customerProfileDAO.GetProfile(customerId);
-        //    }
-
-        //    Assert.AreEqual(expected.CreatedDate, actual.CreatedDate);
-        //    Assert.AreEqual(expected.FirstName, actual.FirstName);
-        //    Assert.AreEqual(expected.Id, actual.Id);
-        //    Assert.AreEqual(expected.LastName, actual.LastName);
-        //}
-
-        //#endregion
+        #endregion
     }
 }

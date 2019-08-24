@@ -22,6 +22,9 @@ namespace Customer.API
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
             services.RegisterCustomer();
+
+            // Register the Swagger services
+            services.AddSwaggerDocument();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -30,6 +33,10 @@ namespace Customer.API
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+
+                // Register the Swagger generator and the Swagger UI middlewares
+                app.UseOpenApi();
+                app.UseSwaggerUi3();
             }
             else
             {
