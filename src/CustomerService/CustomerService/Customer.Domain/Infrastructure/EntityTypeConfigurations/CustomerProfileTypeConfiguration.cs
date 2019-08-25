@@ -2,13 +2,13 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Customer.Domain.Infrastructure.EntityConfigurationsConfiguration
+namespace Customer.Domain.Infrastructure.EntityTypeConfigurations
 {
     internal class CustomerProfileTypeConfiguration : IEntityTypeConfiguration<CustomerProfileEntity>
     {
         public void Configure(EntityTypeBuilder<CustomerProfileEntity> builder)
         {
-            builder.ToTable("customers");
+            builder.ToTable("customer");
             builder.HasKey(e => e.Id);
         }
     }

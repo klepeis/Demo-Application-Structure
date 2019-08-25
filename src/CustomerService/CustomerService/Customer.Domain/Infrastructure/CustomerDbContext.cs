@@ -1,4 +1,4 @@
-﻿using Customer.Domain.Infrastructure.EntityConfigurationsConfiguration;
+﻿using Customer.Domain.Infrastructure.EntityTypeConfigurations;
 using Customer.Domain.Profile.DataAccessObjects.Models.Entitys;
 using Microsoft.EntityFrameworkCore;
 using System.Runtime.CompilerServices;
