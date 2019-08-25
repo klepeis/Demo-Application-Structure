@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Product.Domain.Inventory.BusinessObjects;
 using Product.Domain.Inventory.BusinessObjects.DTOs;
+using System;
 
 namespace Product.API.Controllers
 {
@@ -13,7 +14,7 @@ namespace Product.API.Controllers
 
         public InventoryController(IInventoryDetailBO inventoryDetailBO)
         {
-            _inventoryDetailBO = inventoryDetailBO;
+            _inventoryDetailBO = inventoryDetailBO ?? throw new ArgumentNullException(nameof(inventoryDetailBO));
         }
 
         //// GET: api/Inventory

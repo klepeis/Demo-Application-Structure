@@ -1,4 +1,5 @@
 ﻿using Customer.Domain.Profile.BusinessObjects;
+using System;
 
 namespace Customer.Domain.Factories
 {
@@ -8,7 +9,7 @@ namespace Customer.Domain.Factories
 
         public CustomerBOFactory(ICustomerDAOFactory customerDAOFactory)
         {
-            _customerDAOFactory = customerDAOFactory;
+            _customerDAOFactory = customerDAOFactory ?? throw new ArgumentNullException(nameof(customerDAOFactory));
         }
 
         /// <summary>

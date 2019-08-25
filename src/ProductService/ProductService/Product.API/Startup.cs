@@ -25,6 +25,9 @@ namespace Product.API
 
             // Register the Swagger services
             services.AddSwaggerDocument();
+
+            // Register Health Checks
+            services.AddHealthChecks();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -44,6 +47,8 @@ namespace Product.API
                 app.UseHsts();
             }
 
+            // Create Health Checks Endpoint.
+            app.UseHealthChecks("/health");
             app.UseHttpsRedirection();
             app.UseMvc();
         }

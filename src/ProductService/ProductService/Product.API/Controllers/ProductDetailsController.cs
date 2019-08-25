@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Product.Domain.ProductDetail.BusinessObjects;
 using Product.Domain.ProductDetail.BusinessObjects.DTOs;
+using System;
 
 namespace Product.API.Controllers
 {
@@ -13,7 +14,7 @@ namespace Product.API.Controllers
 
         public ProductDetailsController(IProductDetailBO productDetailBO)
         {
-            _productDetailBO = productDetailBO;
+            _productDetailBO = productDetailBO ?? throw new ArgumentNullException(nameof(productDetailBO));
         }
 
         //// GET: api/ProductDetails

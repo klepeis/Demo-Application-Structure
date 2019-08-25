@@ -1,5 +1,6 @@
 ﻿using Product.Domain.Inventory.BusinessObjects;
 using Product.Domain.ProductDetail.BusinessObjects;
+using System;
 
 namespace Product.Domain.Factories
 {
@@ -9,7 +10,7 @@ namespace Product.Domain.Factories
 
         public ProductBOFactory(IProductDAOFactory productDAOFactory)
         {
-            _productDAOFactory = productDAOFactory;
+            _productDAOFactory = productDAOFactory ?? throw new ArgumentNullException(nameof(productDAOFactory));
         }
 
         public IInventoryDetailBO CreateInventoryDetailBO()

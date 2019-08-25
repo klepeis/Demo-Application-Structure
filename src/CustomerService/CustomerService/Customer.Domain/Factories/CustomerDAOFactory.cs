@@ -1,5 +1,6 @@
 ﻿using Customer.Domain.Infrastructure;
 using Customer.Domain.Profile.DataAccessObjects;
+using System;
 
 namespace Customer.Domain.Factories
 {
@@ -9,7 +10,7 @@ namespace Customer.Domain.Factories
 
         public CustomerDAOFactory(CustomerDbContext customerDbContext)
         {
-            _customerDbContext = customerDbContext;
+            _customerDbContext = customerDbContext ?? throw new ArgumentNullException(nameof(customerDbContext));
         }
 
         /// <summary>

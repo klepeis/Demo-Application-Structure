@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Product.Domain.Inventory.DataAccessObjects.Entitys;
 using Product.Domain.Infrastructure;
+using System;
 
 namespace Product.Domain.Inventory.DataAccessObjects
 {
@@ -10,7 +11,7 @@ namespace Product.Domain.Inventory.DataAccessObjects
 
         public InventoryDetailDAO(ProductDbContext productDbContext)
         {
-            _productDbContext = productDbContext;
+            _productDbContext = productDbContext ?? throw new ArgumentNullException(nameof(productDbContext));
         }
 
         public InventoryDetailEntity AddInventoryDetail(InventoryDetailEntity itemToAdd)

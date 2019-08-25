@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Product.Domain.Infrastructure;
 using Product.Domain.ProductDetail.DataAccessObjects.Entitys;
+using System;
 
 namespace Product.Domain.ProductDetail.DataAccessObjects
 {
@@ -10,7 +11,7 @@ namespace Product.Domain.ProductDetail.DataAccessObjects
 
         public ProductDetailDAO(ProductDbContext productDbContext)
         {
-            _productDbContext = productDbContext;
+            _productDbContext = productDbContext ?? throw new ArgumentNullException(nameof(productDbContext));
         }
 
         public ProductDetailEntity AddProduct(ProductDetailEntity productToAdd)

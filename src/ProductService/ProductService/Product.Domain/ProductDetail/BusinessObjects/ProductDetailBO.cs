@@ -1,6 +1,7 @@
 ﻿using Product.Domain.ProductDetail.BusinessObjects.DTOs;
 using Product.Domain.ProductDetail.DataAccessObjects;
 using Product.Domain.ProductDetail.DataAccessObjects.Entitys;
+using System;
 
 namespace Product.Domain.ProductDetail.BusinessObjects
 {
@@ -10,7 +11,7 @@ namespace Product.Domain.ProductDetail.BusinessObjects
 
         public ProductDetailBO(IProductDetailDAO productDetailDAO)
         {
-            _productDetailDAO = productDetailDAO;
+            _productDetailDAO = productDetailDAO ?? throw new ArgumentNullException(nameof(productDetailDAO));
         }
 
         public ProductDetailDTO AddProduct(ProductDetailDTO productToAdd)

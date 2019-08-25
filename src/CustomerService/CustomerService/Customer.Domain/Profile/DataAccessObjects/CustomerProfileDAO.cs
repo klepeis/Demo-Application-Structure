@@ -1,6 +1,7 @@
 ﻿using Customer.Domain.Infrastructure;
 using Customer.Domain.Profile.DataAccessObjects.Models.Entitys;
 using Microsoft.EntityFrameworkCore;
+using System;
 using System.Runtime.CompilerServices;
 
 [assembly: InternalsVisibleTo("Customer.Tests")]
@@ -13,7 +14,7 @@ namespace Customer.Domain.Profile.DataAccessObjects
 
         public CustomerProfileDAO(CustomerDbContext customerDbContext)
         {
-            _customerDbContext = customerDbContext;
+            _customerDbContext = customerDbContext ?? throw new ArgumentNullException(nameof(customerDbContext));
         }
 
         /// <summary>

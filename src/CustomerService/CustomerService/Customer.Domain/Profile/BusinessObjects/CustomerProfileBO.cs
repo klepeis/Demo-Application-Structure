@@ -1,6 +1,7 @@
 ﻿using Customer.Domain.Profile.BusinessObjects.DTOs;
 using Customer.Domain.Profile.DataAccessObjects;
 using Customer.Domain.Profile.DataAccessObjects.Models.Entitys;
+using System;
 using System.Runtime.CompilerServices;
 
 [assembly: InternalsVisibleTo("Customer.Tests")]
@@ -13,7 +14,7 @@ namespace Customer.Domain.Profile.BusinessObjects
 
         public CustomerProfileBO(ICustomerProfileDAO customerProfileDAO)
         {
-            _customerProfileDAO = customerProfileDAO;
+            _customerProfileDAO = customerProfileDAO ?? throw new ArgumentNullException(nameof(customerProfileDAO));
         }
 
         /// <summary>

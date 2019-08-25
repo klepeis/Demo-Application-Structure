@@ -21,6 +21,9 @@ namespace Customer.API
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
+            // Register Health Checks
+            services.AddHealthChecks();
+
             services.RegisterCustomerDomain();
 
             // Register the Swagger services
@@ -44,6 +47,8 @@ namespace Customer.API
                 app.UseHsts();
             }
 
+            // Create Health Checks Endpoint.
+            app.UseHealthChecks("/health");
             app.UseHttpsRedirection();
             app.UseMvc();
         }

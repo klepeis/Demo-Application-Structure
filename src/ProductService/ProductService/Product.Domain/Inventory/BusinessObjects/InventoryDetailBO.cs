@@ -1,6 +1,7 @@
 ﻿using Product.Domain.Inventory.BusinessObjects.DTOs;
 using Product.Domain.Inventory.DataAccessObjects;
 using Product.Domain.Inventory.DataAccessObjects.Entitys;
+using System;
 
 namespace Product.Domain.Inventory.BusinessObjects
 {
@@ -10,7 +11,7 @@ namespace Product.Domain.Inventory.BusinessObjects
 
         public InventoryDetailBO(IInventoryDetailDAO inventoryDetailDAO)
         {
-            _inventoryDetailDAO = inventoryDetailDAO;
+            _inventoryDetailDAO = inventoryDetailDAO ?? throw new ArgumentNullException(nameof(inventoryDetailDAO));
         }
 
         public InventoryDetailDTO AddInventoryDetail(InventoryDetailDTO itemToAdd)

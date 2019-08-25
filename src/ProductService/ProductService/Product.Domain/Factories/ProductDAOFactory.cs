@@ -1,6 +1,7 @@
 ﻿using Product.Domain.Infrastructure;
 using Product.Domain.Inventory.DataAccessObjects;
 using Product.Domain.ProductDetail.DataAccessObjects;
+using System;
 
 namespace Product.Domain.Factories
 {
@@ -10,7 +11,7 @@ namespace Product.Domain.Factories
 
         public ProductDAOFactory(ProductDbContext productDbContext)
         {
-            _productDbContext = productDbContext;
+            _productDbContext = productDbContext ?? throw new ArgumentNullException(nameof(productDbContext));
         }
 
         public IInventoryDetailDAO CreateInventoryDetailDAO()
