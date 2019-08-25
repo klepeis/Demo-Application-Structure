@@ -1,18 +1,16 @@
 ﻿using Microsoft.AspNetCore.Http;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
 
 namespace Customer.API.Infrastructure.Middleware
 {
-    public class CustomExceptionHandlerMiddleware
+    public class GlobalExceptionHandlerMiddleware
     {
         private readonly RequestDelegate _next;
         //private readonly ILoggerManager _logger;
 
-        public CustomExceptionHandlerMiddleware(RequestDelegate next)
+        public GlobalExceptionHandlerMiddleware(RequestDelegate next)
         {
             //_logger = logger;
             _next = next;

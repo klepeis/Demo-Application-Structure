@@ -5,9 +5,9 @@ namespace Customer.API.Extensions.Middleware
 {
     public static class MiddlewareExtensions
     {
-        public static IApplicationBuilder UseCustomExceptionHandler(this IApplicationBuilder builder)
+        public static IApplicationBuilder UseGlobalExceptionHandler(this IApplicationBuilder builder)
         {
-            return builder.UseMiddleware<CustomExceptionHandlerMiddleware>();
+            return builder.UseMiddleware<GlobalExceptionHandlerMiddleware>();
         }
     }
 }

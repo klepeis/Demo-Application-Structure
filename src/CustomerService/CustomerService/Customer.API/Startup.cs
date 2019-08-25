@@ -48,7 +48,7 @@ namespace Customer.API
                 app.UseHsts();
             }
 
-            app.UseCustomExceptionHandler();
+            app.UseGlobalExceptionHandler();
 
             // Create Health Checks Endpoint.
             app.UseHealthChecks("/health");
