@@ -6,7 +6,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using System;
 
-namespace Customer.Domain.Tests.Profile.BusinessObjects
+namespace Customer.Domain.UnitTests.Profile.BusinessObjects
 {
     [TestClass]
     public class CustomerProfileBOTests

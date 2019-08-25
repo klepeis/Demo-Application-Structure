@@ -4,7 +4,7 @@ using Customer.Domain.Profile.DataAccessObjects.Models.Entitys;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Customer.Domain.Tests.Profile.DataAccessObjects
+namespace Customer.Domain.UnitTests.Profile.DataAccessObjects
 {
     [TestClass]
     public class CustomerProfileDAOTests

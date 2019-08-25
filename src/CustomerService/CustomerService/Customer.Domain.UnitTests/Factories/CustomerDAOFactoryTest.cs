@@ -4,7 +4,7 @@ using Customer.Domain.Profile.DataAccessObjects;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 
-namespace Customer.Domain.Tests.Factories
+namespace Customer.Domain.UnitTests.Factories
 {
     [TestClass]
     public class CustomerDAOFactoryTest

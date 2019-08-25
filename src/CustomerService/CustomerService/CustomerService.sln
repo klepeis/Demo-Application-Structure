@@ -13,13 +13,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Client - NuGet", "Client - 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Service", "Service", "{1BDF32F9-3650-4404-8892-18A75B20A872}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Customer.Domain.Tests", "Customer.Domain.Tests\Customer.Domain.Tests.csproj", "{43126B5F-2642-471B-90AD-DF76225B32AF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Customer.Domain.UnitTests", "Customer.Domain.UnitTests\Customer.Domain.UnitTests.csproj", "{43126B5F-2642-471B-90AD-DF76225B32AF}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{1E73FB9A-26CC-4B39-A338-D10EEF1E1FEF}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Customer.API.Tests", "Customer.API.Tests\Customer.API.Tests.csproj", "{74F61745-F97F-4A44-898A-454A3121083A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Customer.API.UnitTests", "Customer.API.UnitTests\Customer.API.UnitTests.csproj", "{74F61745-F97F-4A44-898A-454A3121083A}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Customer.Client.Tests", "Customer.Client.Tests\Customer.Client.Tests.csproj", "{0856EE11-4949-41EC-A74D-4A3A2CF92251}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Customer.Client.UnitTests", "Customer.Client.UnitTests\Customer.Client.UnitTests.csproj", "{0856EE11-4949-41EC-A74D-4A3A2CF92251}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -7,7 +7,7 @@ using Moq;
 using System;
 using System.Net;
 
-namespace Customer.API.Tests.Controllers
+namespace Customer.API.UnitTests.Controllers
 {
     [TestClass]
     public class ProfileControllerTests
