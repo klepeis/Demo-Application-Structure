@@ -1,8 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Product.Inventory.BusinessObjects;
-using Product.Inventory.BusinessObjects.Models;
-using System.Collections.Generic;
+using Product.Domain.Inventory.BusinessObjects;
+using Product.Domain.Inventory.BusinessObjects.DTOs;
 
 namespace Product.API.Controllers
 {
@@ -25,26 +24,26 @@ namespace Product.API.Controllers
         //}
 
         // GET: api/Inventory/5
-        [HttpGet("{id}", Name = "Get")]
-        [ProducesResponseType(typeof(InventoryDetail), StatusCodes.Status200OK)]
-        public ActionResult<InventoryDetail> GetInventoryDetails(int id)
+        [HttpGet("{id}")]
+        [ProducesResponseType(typeof(InventoryDetailDTO), StatusCodes.Status200OK)]
+        public ActionResult<InventoryDetailDTO> GetInventoryDetails(int id)
         {
             return Ok(_inventoryDetailBO.GetInventoryDetail(id));
         }
 
         // POST: api/Inventory
         [HttpPost]
-        [ProducesResponseType(typeof(InventoryDetail), StatusCodes.Status201Created)]
-        public ActionResult<InventoryDetail> Post([FromBody] InventoryDetail inventoryDetailToAdd)
+        [ProducesResponseType(typeof(InventoryDetailDTO), StatusCodes.Status201Created)]
+        public ActionResult<InventoryDetailDTO> Post([FromBody] InventoryDetailDTO inventoryDetailToAdd)
         {
-            InventoryDetail newInventoryDetail = _inventoryDetailBO.AddInventoryDetail(inventoryDetailToAdd);
+            InventoryDetailDTO newInventoryDetail = _inventoryDetailBO.AddInventoryDetail(inventoryDetailToAdd);
             return CreatedAtAction(nameof(GetInventoryDetails), new { id = newInventoryDetail.ProductId }, newInventoryDetail);
         }
 
         // PUT: api/Inventory/5
         [HttpPut("{id}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
-        public ActionResult Put(int id, [FromBody]  InventoryDetail inventoryDetailToUpdate)
+        public ActionResult Put(int id, [FromBody]  InventoryDetailDTO inventoryDetailToUpdate)
         {
             if (id != inventoryDetailToUpdate.ProductId)
             {

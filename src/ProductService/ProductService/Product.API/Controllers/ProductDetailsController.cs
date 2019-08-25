@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Product.ProductDetail.BusinessObjects;
+using Product.Domain.ProductDetail.BusinessObjects;
+using Product.Domain.ProductDetail.BusinessObjects.DTOs;
 
 namespace Product.API.Controllers
 {
@@ -23,26 +24,26 @@ namespace Product.API.Controllers
         //}
 
         // GET: api/ProductDetails/5
-        [HttpGet("{id}", Name = "Get")]
-        [ProducesResponseType(typeof(ProductDetail.BusinessObjects.Models.ProductDetail), StatusCodes.Status200OK)]
-        public ActionResult<ProductDetail.BusinessObjects.Models.ProductDetail> GetProductDetail(long id)
+        [HttpGet("{id}")]
+        [ProducesResponseType(typeof(ProductDetailDTO), StatusCodes.Status200OK)]
+        public ActionResult<ProductDetailDTO> GetProductDetail(long id)
         {
             return Ok(_productDetailBO.GetProduct(id));
         }
 
         // POST: api/ProductDetails
         [HttpPost]
-        [ProducesResponseType(typeof(ProductDetail.BusinessObjects.Models.ProductDetail), StatusCodes.Status201Created)]
-        public ActionResult<ProductDetail.BusinessObjects.Models.ProductDetail> Post([FromBody] ProductDetail.BusinessObjects.Models.ProductDetail productToAdd)
+        [ProducesResponseType(typeof(ProductDetailDTO), StatusCodes.Status201Created)]
+        public ActionResult<ProductDetailDTO> Post([FromBody] ProductDetailDTO productToAdd)
         {
-            ProductDetail.BusinessObjects.Models.ProductDetail newProduct = _productDetailBO.AddProduct(productToAdd);
+            ProductDetailDTO newProduct = _productDetailBO.AddProduct(productToAdd);
             return CreatedAtAction(nameof(GetProductDetail), new { id = newProduct.Id }, newProduct);
         }
 
         // PUT: api/ProductDetails/5
         [HttpPut("{id}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
-        public ActionResult Put(long id, [FromBody] ProductDetail.BusinessObjects.Models.ProductDetail productToUpdate)
+        public ActionResult Put(long id, [FromBody] ProductDetailDTO productToUpdate)
         {
             if (id != productToUpdate.Id)
             {
