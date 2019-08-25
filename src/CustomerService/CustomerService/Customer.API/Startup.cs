@@ -1,4 +1,5 @@
-﻿using Customer.Domain.Extensions.DependencyInjection;
+﻿using Customer.API.Extensions.Middleware;
+using Customer.Domain.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -46,6 +47,8 @@ namespace Customer.API
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+
+            app.UseCustomExceptionHandler();
 
             // Create Health Checks Endpoint.
             app.UseHealthChecks("/health");
