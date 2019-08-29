@@ -1,6 +1,6 @@
 ﻿using Product.Domain.Infrastructure;
 using Product.Domain.Inventory.DataAccessObjects;
-using Product.Domain.ProductDetail.DataAccessObjects;
+using Product.Domain.Product.DataAccessObjects;
 using System;
 
 namespace Product.Domain.Factories

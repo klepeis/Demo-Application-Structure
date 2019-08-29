@@ -1,5 +1,5 @@
-﻿using Product.Domain.Inventory.BusinessObjects.DTOs;
-using Product.Domain.ProductDetail.DataAccessObjects.Entitys;
+﻿using Product.Domain.Inventory.BusinessObjects.BusinessModels;
+using Product.Domain.Product.DataAccessObjects.Entitys;
 using System;
 
 namespace Product.Domain.Inventory.DataAccessObjects.Entitys
@@ -8,7 +8,7 @@ namespace Product.Domain.Inventory.DataAccessObjects.Entitys
     {
         public InventoryDetailEntity() { }
 
-        public InventoryDetailEntity(InventoryDetailDTO inventoryDetail)
+        public InventoryDetailEntity(InventoryDetail inventoryDetail)
         {
             this.CreatedDate = inventoryDetail.CreatedDate;
             this.ModifiedDate = inventoryDetail.ModifiedDate;
@@ -21,9 +21,9 @@ namespace Product.Domain.Inventory.DataAccessObjects.Entitys
         public DateTime CreatedDate { get; set; }
         public DateTime ModifiedDate { get; set; }
 
-        internal InventoryDetailDTO ConvertToDTO()
+        internal InventoryDetail ConvertToDTO()
         {
-            return new InventoryDetailDTO()
+            return new InventoryDetail()
             {
                 CreatedDate = this.CreatedDate,
                 ModifiedDate = this.ModifiedDate,

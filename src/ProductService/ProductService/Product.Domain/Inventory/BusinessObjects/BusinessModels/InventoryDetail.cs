@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace Product.Domain.Inventory.BusinessObjects.DTOs
+namespace Product.Domain.Inventory.BusinessObjects.BusinessModels
 {
-    public class InventoryDetailDTO
+    public class InventoryDetail
     {
         public long ProductId { get; set; }
         public int Quantity { get; set; }

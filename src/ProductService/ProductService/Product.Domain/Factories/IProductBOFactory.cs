@@ -1,5 +1,5 @@
 ﻿using Product.Domain.Inventory.BusinessObjects;
-using Product.Domain.ProductDetail.BusinessObjects;
+using Product.Domain.Product.BusinessObjects;
 
 namespace Product.Domain.Factories
 {

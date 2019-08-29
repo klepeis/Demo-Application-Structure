@@ -1,14 +1,14 @@
 ﻿using Product.Domain.Inventory.DataAccessObjects.Entitys;
-using Product.Domain.ProductDetail.BusinessObjects.DTOs;
+using Product.Domain.Product.BusinessObjects.BusinessModels;
 using System;
 
-namespace Product.Domain.ProductDetail.DataAccessObjects.Entitys
+namespace Product.Domain.Product.DataAccessObjects.Entitys
 {
     internal class ProductDetailEntity
     {
         public ProductDetailEntity() { }
 
-        public ProductDetailEntity(ProductDetailDTO productDetail)
+        public ProductDetailEntity(BusinessObjects.BusinessModels.ProductDetail productDetail)
         {
             this.CreatedDate = productDetail.CreatedDate;
             this.Description = productDetail.Description;
@@ -27,9 +27,9 @@ namespace Product.Domain.ProductDetail.DataAccessObjects.Entitys
         public DateTime CreatedDate { get; set; }
         public DateTime ModifiedDate { get; set; }
 
-        internal ProductDetailDTO ConvertToDTO()
+        internal ProductDetail ConvertToDTO()
         {
-            return new ProductDetailDTO()
+            return new BusinessObjects.BusinessModels.ProductDetail()
             {
                 CreatedDate = this.CreatedDate,
                 Description = this.Description,

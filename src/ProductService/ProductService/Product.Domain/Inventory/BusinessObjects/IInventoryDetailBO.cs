@@ -1,12 +1,12 @@
-﻿using Product.Domain.Inventory.BusinessObjects.DTOs;
+﻿using Product.Domain.Inventory.BusinessObjects.BusinessModels;
 
 namespace Product.Domain.Inventory.BusinessObjects
 {
     public interface IInventoryDetailBO
     {
-        InventoryDetailDTO AddInventoryDetail(InventoryDetailDTO itemToAdd);
+        InventoryDetail AddInventoryDetail(InventoryDetail itemToAdd);
         void DeleteInventoryDetail(long id);
-        InventoryDetailDTO GetInventoryDetail(long id);
-        InventoryDetailDTO UpdateInventoryDetail(InventoryDetailDTO itemToUpdate);
+        InventoryDetail GetInventoryDetail(long id);
+        InventoryDetail UpdateInventoryDetail(InventoryDetail itemToUpdate);
     }
 }

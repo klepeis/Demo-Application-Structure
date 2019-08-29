@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Product.Domain.ProductDetail.BusinessObjects;
-using Product.Domain.ProductDetail.BusinessObjects.DTOs;
+using Product.Domain.Product.BusinessObjects;
+using Product.Domain.Product.BusinessObjects.BusinessModels;
 using System;
 
 namespace Product.API.Controllers
@@ -26,25 +26,25 @@ namespace Product.API.Controllers
 
         // GET: api/ProductDetails/5
         [HttpGet("{id}")]
-        [ProducesResponseType(typeof(ProductDetailDTO), StatusCodes.Status200OK)]
-        public ActionResult<ProductDetailDTO> GetProductDetail(long id)
+        [ProducesResponseType(typeof(ProductDetail), StatusCodes.Status200OK)]
+        public ActionResult<ProductDetail> GetProductDetail(long id)
         {
             return Ok(_productDetailBO.GetProduct(id));
         }
 
         // POST: api/ProductDetails
         [HttpPost]
-        [ProducesResponseType(typeof(ProductDetailDTO), StatusCodes.Status201Created)]
-        public ActionResult<ProductDetailDTO> Post([FromBody] ProductDetailDTO productToAdd)
+        [ProducesResponseType(typeof(ProductDetail), StatusCodes.Status201Created)]
+        public ActionResult<ProductDetail> Post([FromBody] ProductDetail productToAdd)
         {
-            ProductDetailDTO newProduct = _productDetailBO.AddProduct(productToAdd);
+            ProductDetail newProduct = _productDetailBO.AddProduct(productToAdd);
             return CreatedAtAction(nameof(GetProductDetail), new { id = newProduct.Id }, newProduct);
         }
 
         // PUT: api/ProductDetails/5
         [HttpPut("{id}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
-        public ActionResult Put(long id, [FromBody] ProductDetailDTO productToUpdate)
+        public ActionResult Put(long id, [FromBody] ProductDetail productToUpdate)
         {
             if (id != productToUpdate.Id)
             {

@@ -1,6 +1,6 @@
-﻿using Product.Domain.ProductDetail.DataAccessObjects.Entitys;
+﻿using Product.Domain.Product.DataAccessObjects.Entitys;
 
-namespace Product.Domain.ProductDetail.DataAccessObjects
+namespace Product.Domain.Product.DataAccessObjects
 {
     internal interface IProductDetailDAO
     {

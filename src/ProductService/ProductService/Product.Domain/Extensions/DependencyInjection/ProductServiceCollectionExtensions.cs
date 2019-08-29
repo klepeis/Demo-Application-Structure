@@ -3,7 +3,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Product.Domain.Factories;
 using Product.Domain.Infrastructure;
 using Product.Domain.Inventory.BusinessObjects;
-using Product.Domain.ProductDetail.BusinessObjects;
+using Product.Domain.Product.BusinessObjects;
 
 namespace Product.Domain.Extensions.DependencyInjection
 {

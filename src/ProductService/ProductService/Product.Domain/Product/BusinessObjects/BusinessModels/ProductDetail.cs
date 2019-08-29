@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace Product.Domain.ProductDetail.BusinessObjects.DTOs
+namespace Product.Domain.Product.BusinessObjects.BusinessModels
 {
-    public class ProductDetailDTO
+    public class ProductDetail
     {
         public long Id { get; set; }
         public string SKU { get; set; }

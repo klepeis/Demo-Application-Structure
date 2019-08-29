@@ -1,4 +1,4 @@
-﻿using Product.Domain.Inventory.BusinessObjects.DTOs;
+﻿using Product.Domain.Inventory.BusinessObjects.BusinessModels;
 using Product.Domain.Inventory.DataAccessObjects;
 using Product.Domain.Inventory.DataAccessObjects.Entitys;
 using System;
@@ -14,7 +14,7 @@ namespace Product.Domain.Inventory.BusinessObjects
             _inventoryDetailDAO = inventoryDetailDAO ?? throw new ArgumentNullException(nameof(inventoryDetailDAO));
         }
 
-        public InventoryDetailDTO AddInventoryDetail(InventoryDetailDTO itemToAdd)
+        public InventoryDetail AddInventoryDetail(InventoryDetail itemToAdd)
         {
             return _inventoryDetailDAO.AddInventoryDetail(new InventoryDetailEntity(itemToAdd))
                                       .ConvertToDTO();
@@ -32,13 +32,13 @@ namespace Product.Domain.Inventory.BusinessObjects
             _inventoryDetailDAO.DeleteInventoryDetail(itemToDelete);
         }
 
-        public InventoryDetailDTO GetInventoryDetail(long id)
+        public InventoryDetail GetInventoryDetail(long id)
         {
             return _inventoryDetailDAO.GetInventoryDetail(id)
                                     .ConvertToDTO();
         }
 
-        public InventoryDetailDTO UpdateInventoryDetail(InventoryDetailDTO itemToUpdate)
+        public InventoryDetail UpdateInventoryDetail(InventoryDetail itemToUpdate)
         {
             return _inventoryDetailDAO.UpdateInventoryDetail(new InventoryDetailEntity(itemToUpdate))
                                       .ConvertToDTO();

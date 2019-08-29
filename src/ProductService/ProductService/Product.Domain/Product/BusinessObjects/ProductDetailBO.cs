@@ -1,9 +1,9 @@
-﻿using Product.Domain.ProductDetail.BusinessObjects.DTOs;
-using Product.Domain.ProductDetail.DataAccessObjects;
-using Product.Domain.ProductDetail.DataAccessObjects.Entitys;
+﻿using Product.Domain.Product.BusinessObjects.BusinessModels;
+using Product.Domain.Product.DataAccessObjects;
+using Product.Domain.Product.DataAccessObjects.Entitys;
 using System;
 
-namespace Product.Domain.ProductDetail.BusinessObjects
+namespace Product.Domain.Product.BusinessObjects
 {
     internal class ProductDetailBO : IProductDetailBO
     {
@@ -14,7 +14,7 @@ namespace Product.Domain.ProductDetail.BusinessObjects
             _productDetailDAO = productDetailDAO ?? throw new ArgumentNullException(nameof(productDetailDAO));
         }
 
-        public ProductDetailDTO AddProduct(ProductDetailDTO productToAdd)
+        public ProductDetail AddProduct(BusinessModels.ProductDetail productToAdd)
         {
             return _productDetailDAO.AddProduct(new ProductDetailEntity(productToAdd))
                                     .ConvertToDTO();
@@ -32,13 +32,13 @@ namespace Product.Domain.ProductDetail.BusinessObjects
             _productDetailDAO.DeleteProduct(productToDelete);
         }
 
-        public ProductDetailDTO GetProduct(long id)
+        public ProductDetail GetProduct(long id)
         {
             return _productDetailDAO.GetProduct(id)
                                     .ConvertToDTO();
         }
 
-        public ProductDetailDTO UpdateProduct(ProductDetailDTO productToUpdate)
+        public ProductDetail UpdateProduct(BusinessModels.ProductDetail productToUpdate)
         {
             return _productDetailDAO.UpdateProduct(new ProductDetailEntity(productToUpdate))
                                     .ConvertToDTO();

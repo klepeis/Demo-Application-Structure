@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Product.Domain.Inventory.BusinessObjects;
-using Product.Domain.Inventory.BusinessObjects.DTOs;
+using Product.Domain.Inventory.BusinessObjects.BusinessModels;
 using System;
 
 namespace Product.API.Controllers
@@ -26,25 +26,25 @@ namespace Product.API.Controllers
 
         // GET: api/Inventory/5
         [HttpGet("{id}")]
-        [ProducesResponseType(typeof(InventoryDetailDTO), StatusCodes.Status200OK)]
-        public ActionResult<InventoryDetailDTO> GetInventoryDetails(int id)
+        [ProducesResponseType(typeof(InventoryDetail), StatusCodes.Status200OK)]
+        public ActionResult<InventoryDetail> GetInventoryDetails(int id)
         {
             return Ok(_inventoryDetailBO.GetInventoryDetail(id));
         }
 
         // POST: api/Inventory
         [HttpPost]
-        [ProducesResponseType(typeof(InventoryDetailDTO), StatusCodes.Status201Created)]
-        public ActionResult<InventoryDetailDTO> Post([FromBody] InventoryDetailDTO inventoryDetailToAdd)
+        [ProducesResponseType(typeof(InventoryDetail), StatusCodes.Status201Created)]
+        public ActionResult<InventoryDetail> Post([FromBody] InventoryDetail inventoryDetailToAdd)
         {
-            InventoryDetailDTO newInventoryDetail = _inventoryDetailBO.AddInventoryDetail(inventoryDetailToAdd);
+            InventoryDetail newInventoryDetail = _inventoryDetailBO.AddInventoryDetail(inventoryDetailToAdd);
             return CreatedAtAction(nameof(GetInventoryDetails), new { id = newInventoryDetail.ProductId }, newInventoryDetail);
         }
 
         // PUT: api/Inventory/5
         [HttpPut("{id}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
-        public ActionResult Put(int id, [FromBody]  InventoryDetailDTO inventoryDetailToUpdate)
+        public ActionResult Put(int id, [FromBody]  InventoryDetail inventoryDetailToUpdate)
         {
             if (id != inventoryDetailToUpdate.ProductId)
             {
