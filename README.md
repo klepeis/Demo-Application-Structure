@@ -1,5 +1,5 @@
 # Demo-Application-Structure
 
-TODO
- Create HealthCheck Library
- Create Unit Test Library with HttpClient helpers.
+## TODO
+ 1. Create HealthCheck Library
+ 2. Create Unit Test Library with HttpClient helpers.
