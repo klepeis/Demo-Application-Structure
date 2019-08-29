@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Product.API.BackgroundTasks.Options;
+using Product.API.BackgroundTasks.Tasks;
 using Product.Domain.Extensions.DependencyInjection;
 
 namespace Product.API
@@ -21,7 +23,13 @@ namespace Product.API
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
+            // Register Dependencies
             services.RegisterProductDomain();
+
+            // Import Options for background services from appSettings.json
+            services.Configure<PollingTaskOptions>(Configuration.GetSection("PollingTaskOptions"));
+            // Start background service.
+            services.AddHostedService<PollingTask>();
 
             // Register the Swagger services
             services.AddSwaggerDocument();
