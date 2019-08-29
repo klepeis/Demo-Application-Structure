@@ -1,4 +1,4 @@
-﻿using Customer.Domain.Profile.BusinessObjects.DTOs;
+﻿using Customer.Domain.Profile.BusinessObjects.BusinessModels;
 using Customer.Domain.Profile.DataAccessObjects;
 using Customer.Domain.Profile.DataAccessObjects.Models.Entitys;
 using System;
@@ -22,7 +22,7 @@ namespace Customer.Domain.Profile.BusinessObjects
         /// </summary>
         /// <param name="profileToAdd">Customer profile to add.</param>
         /// <returns>Customer Profile that was added.</returns>
-        public CustomerProfileDTO AddProfile(CustomerProfileDTO profileToAdd)
+        public CustomerProfile AddProfile(CustomerProfile profileToAdd)
         {
             return _customerProfileDAO.AddProfile(new CustomerProfileEntity(profileToAdd))
                                       .ConvertToDTO();
@@ -49,7 +49,7 @@ namespace Customer.Domain.Profile.BusinessObjects
         /// </summary>
         /// <param name="id">Customer Profile Id</param>
         /// <returns>Customer Profile if found, NULL if no profile located.</returns>
-        public CustomerProfileDTO GetProfile(long id)
+        public CustomerProfile GetProfile(long id)
         {
             var result = _customerProfileDAO.GetProfile(id);
 
@@ -66,7 +66,7 @@ namespace Customer.Domain.Profile.BusinessObjects
         /// </summary>
         /// <param name="updatedProfile"></param>
         /// <returns></returns>
-        public CustomerProfileDTO UpdateProfile(CustomerProfileDTO updatedProfile)
+        public CustomerProfile UpdateProfile(CustomerProfile updatedProfile)
         {
             return _customerProfileDAO.UpdateProfile(new CustomerProfileEntity(updatedProfile))
                                       .ConvertToDTO();

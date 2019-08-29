@@ -1,4 +1,4 @@
-﻿using Customer.Domain.Profile.BusinessObjects.DTOs;
+﻿using Customer.Domain.Profile.BusinessObjects.BusinessModels;
 
 namespace Customer.Domain.Profile.BusinessObjects
 {
@@ -9,7 +9,7 @@ namespace Customer.Domain.Profile.BusinessObjects
         /// </summary>
         /// <param name="profileToAdd">Customer profile to add.</param>
         /// <returns>Customer Profile that was added.</returns>
-        CustomerProfileDTO AddProfile(CustomerProfileDTO profileToAdd);
+        CustomerProfile AddProfile(CustomerProfile profileToAdd);
 
         /// <summary>
         /// Delete a Customer Profile.
@@ -22,13 +22,13 @@ namespace Customer.Domain.Profile.BusinessObjects
         /// </summary>
         /// <param name="id">Customer Profile Id</param>
         /// <returns>Customer Profile if found, NULL if no profile located.</returns>
-        CustomerProfileDTO GetProfile(long id);
+        CustomerProfile GetProfile(long id);
 
         /// <summary>
         /// Update an existing profile.
         /// </summary>
         /// <param name="updatedProfile"></param>
         /// <returns></returns>
-        CustomerProfileDTO UpdateProfile(CustomerProfileDTO updatedProfile);
+        CustomerProfile UpdateProfile(CustomerProfile updatedProfile);
     }
 }

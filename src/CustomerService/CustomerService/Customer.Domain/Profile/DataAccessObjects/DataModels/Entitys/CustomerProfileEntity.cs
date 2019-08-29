@@ -1,4 +1,4 @@
-﻿using Customer.Domain.Profile.BusinessObjects.DTOs;
+﻿using Customer.Domain.Profile.BusinessObjects.BusinessModels;
 using System;
 using System.Runtime.CompilerServices;
 
@@ -16,7 +16,7 @@ namespace Customer.Domain.Profile.DataAccessObjects.Models.Entitys
         /// Constructor used to convert a Business CustomerProfile model to a DataAccess CustomerProfile model.
         /// </summary>
         /// <param name="customerProfile">Business Model</param>
-        public CustomerProfileEntity(CustomerProfileDTO customerProfile)
+        public CustomerProfileEntity(CustomerProfile customerProfile)
         {
             this.FirstName = customerProfile.FirstName;
             this.Id = customerProfile.Id;
@@ -29,9 +29,9 @@ namespace Customer.Domain.Profile.DataAccessObjects.Models.Entitys
         public DateTime CreatedDate { get; set; }
         public DateTime? ModifiedDate { get; set; }
 
-        internal CustomerProfileDTO ConvertToDTO()
+        internal CustomerProfile ConvertToDTO()
         {
-            return new CustomerProfileDTO()
+            return new CustomerProfile()
             {
                 CreatedDate = this.CreatedDate,
                 ModifiedDate = this.ModifiedDate,

@@ -1,5 +1,5 @@
 ﻿using Customer.Domain.Profile.BusinessObjects;
-using Customer.Domain.Profile.BusinessObjects.DTOs;
+using Customer.Domain.Profile.BusinessObjects.BusinessModels;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -26,9 +26,9 @@ namespace Customer.API.Controllers
 
         // GET: api/Profile/5
         [HttpGet("{id}", Name = "Get")]
-        [ProducesResponseType(typeof(CustomerProfileDTO), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(CustomerProfile), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public ActionResult<CustomerProfileDTO> GetCustomerProfile(long id)
+        public ActionResult<CustomerProfile> GetCustomerProfile(long id)
         {
             var result = _customerProfileBO.GetProfile(id);
 
@@ -42,13 +42,13 @@ namespace Customer.API.Controllers
 
         // POST: api/Profile
         [HttpPost]
-        [ProducesResponseType(typeof(CustomerProfileDTO), StatusCodes.Status201Created)]
+        [ProducesResponseType(typeof(CustomerProfile), StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public ActionResult<CustomerProfileDTO> AddCustomerProfile([FromBody] CustomerProfileDTO profileToAdd)
+        public ActionResult<CustomerProfile> AddCustomerProfile([FromBody] CustomerProfile profileToAdd)
         {
             if (ModelState.IsValid)
             {
-                CustomerProfileDTO newProfile = _customerProfileBO.AddProfile(profileToAdd);
+                CustomerProfile newProfile = _customerProfileBO.AddProfile(profileToAdd);
                 return CreatedAtAction(nameof(GetCustomerProfile), new { id = newProfile.Id }, newProfile);
             }
 
@@ -59,7 +59,7 @@ namespace Customer.API.Controllers
         [HttpPut("{id}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public ActionResult UpdateCustomerProfile(long id, [FromBody] CustomerProfileDTO profileToUpdate)
+        public ActionResult UpdateCustomerProfile(long id, [FromBody] CustomerProfile profileToUpdate)
         {
             if(id != profileToUpdate.Id)
             {

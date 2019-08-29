@@ -1,5 +1,5 @@
 ﻿using Customer.Domain.Profile.BusinessObjects;
-using Customer.Domain.Profile.BusinessObjects.DTOs;
+using Customer.Domain.Profile.BusinessObjects.BusinessModels;
 using Customer.Domain.Profile.DataAccessObjects;
 using Customer.Domain.Profile.DataAccessObjects.Models.Entitys;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -32,7 +32,7 @@ namespace Customer.Domain.UnitTests.Profile.BusinessObjects
 
             // Act
             CustomerProfileBO customerProfileBO = new CustomerProfileBO(mockCustomerProfileDAO.Object);
-            CustomerProfileDTO actual = customerProfileBO.AddProfile(new CustomerProfileDTO()
+            CustomerProfile actual = customerProfileBO.AddProfile(new CustomerProfile()
             {
                 FirstName = "Test",
                 Id = 123,
@@ -40,7 +40,7 @@ namespace Customer.Domain.UnitTests.Profile.BusinessObjects
             });
 
             // Assert
-            CustomerProfileDTO expected = seedData.ConvertToDTO();
+            CustomerProfile expected = seedData.ConvertToDTO();
 
             Assert.AreEqual(expected.CreatedDate, actual.CreatedDate);
             Assert.AreEqual(expected.FirstName, actual.FirstName);
@@ -91,10 +91,10 @@ namespace Customer.Domain.UnitTests.Profile.BusinessObjects
 
             // Act
             CustomerProfileBO customerProfileBO = new CustomerProfileBO(mockCustomerProfileDAO.Object);
-            CustomerProfileDTO actual = customerProfileBO.GetProfile(123);
+            CustomerProfile actual = customerProfileBO.GetProfile(123);
 
             // Assert
-            CustomerProfileDTO expected = seedData.ConvertToDTO();
+            CustomerProfile expected = seedData.ConvertToDTO();
 
             Assert.AreEqual(expected.CreatedDate, actual.CreatedDate);
             Assert.AreEqual(expected.FirstName, actual.FirstName);
@@ -112,7 +112,7 @@ namespace Customer.Domain.UnitTests.Profile.BusinessObjects
 
             // Act
             CustomerProfileBO customerProfileBO = new CustomerProfileBO(mockCustomerProfileDAO.Object);
-            CustomerProfileDTO actual = customerProfileBO.GetProfile(It.IsAny<long>());
+            CustomerProfile actual = customerProfileBO.GetProfile(It.IsAny<long>());
 
             // Assert
             Assert.IsNull(actual);
@@ -141,7 +141,7 @@ namespace Customer.Domain.UnitTests.Profile.BusinessObjects
 
             // Act
             CustomerProfileBO customerProfileBO = new CustomerProfileBO(mockCustomerProfileDAO.Object);
-            CustomerProfileDTO actual = customerProfileBO.UpdateProfile(new CustomerProfileDTO()
+            CustomerProfile actual = customerProfileBO.UpdateProfile(new CustomerProfile()
             {
                 FirstName = "Test",
                 Id = 123,
@@ -150,7 +150,7 @@ namespace Customer.Domain.UnitTests.Profile.BusinessObjects
             });
 
             // Assert
-            CustomerProfileDTO expected = seedData.ConvertToDTO();
+            CustomerProfile expected = seedData.ConvertToDTO();
 
             Assert.AreEqual(expected.CreatedDate, actual.CreatedDate);
             Assert.AreEqual(expected.ModifiedDate, actual.ModifiedDate);
