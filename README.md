@@ -19,10 +19,11 @@
  9.  Unit Tests
 
 ## Todo
- 1. Create NuGet library of Health Checks.
- 2. Create NuGet library for middleware components.
- 3. Create NuGet library for unit tests helps with HttpClient helpers.
- 4. Create a BFF/Orchestration demo.
- 5. Generalize Demo for a single domain service and create a Nuget template.
- 6. Move Todo's to GitHub Project
+ 1. **Api Versioning**
+ 2. Create NuGet library of Health Checks.
+ 3. Create NuGet library for middleware components.
+ 4. Create NuGet library for unit tests helps with HttpClient helpers.
+ 5. Create a BFF/Orchestration demo.
+ 6. Generalize Demo for a single domain service and create a Nuget template.
+ 7. Move Todo's to GitHub Project
  

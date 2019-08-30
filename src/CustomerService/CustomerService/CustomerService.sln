@@ -21,6 +21,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Customer.API.UnitTests", "C
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Customer.Client.UnitTests", "Customer.Client.UnitTests\Customer.Client.UnitTests.csproj", "{0856EE11-4949-41EC-A74D-4A3A2CF92251}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Customer.GraphQL", "Customer.GraphQL\Customer.GraphQL.csproj", "{279E7DDC-97F1-4171-9EDC-FA5E619F3A2A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{0856EE11-4949-41EC-A74D-4A3A2CF92251}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0856EE11-4949-41EC-A74D-4A3A2CF92251}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0856EE11-4949-41EC-A74D-4A3A2CF92251}.Release|Any CPU.Build.0 = Release|Any CPU
+		{279E7DDC-97F1-4171-9EDC-FA5E619F3A2A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{279E7DDC-97F1-4171-9EDC-FA5E619F3A2A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{279E7DDC-97F1-4171-9EDC-FA5E619F3A2A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{279E7DDC-97F1-4171-9EDC-FA5E619F3A2A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
