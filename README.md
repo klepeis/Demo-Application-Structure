@@ -22,4 +22,6 @@
  2. Create NuGet library for middleware components.
  3. Create NuGet library for unit tests helps with HttpClient helpers.
  4. Create a BFF/Orchestration demo.
+ 5. Generalize Demo for a single domain service and create a Nuget template.
+ 6. Move Todo's to GitHub Project
  
