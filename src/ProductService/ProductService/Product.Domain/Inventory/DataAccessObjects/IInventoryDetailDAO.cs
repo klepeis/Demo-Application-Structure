@@ -1,4 +1,4 @@
-﻿using Product.Domain.Inventory.DataAccessObjects.Entitys;
+﻿using Product.Domain.Inventory.DataAccessObjects.DataModels.Entitys;
 
 namespace Product.Domain.Inventory.DataAccessObjects
 {

@@ -1,6 +1,6 @@
 ﻿using Product.Domain.Inventory.BusinessObjects.BusinessModels;
 using Product.Domain.Inventory.DataAccessObjects;
-using Product.Domain.Inventory.DataAccessObjects.Entitys;
+using Product.Domain.Inventory.DataAccessObjects.DataModels.Entitys;
 using System;
 
 namespace Product.Domain.Inventory.BusinessObjects

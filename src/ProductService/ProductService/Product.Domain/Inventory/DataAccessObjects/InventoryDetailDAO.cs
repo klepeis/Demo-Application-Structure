@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Product.Domain.Inventory.DataAccessObjects.Entitys;
+using Product.Domain.Inventory.DataAccessObjects.DataModels.Entitys;
 using Product.Domain.Infrastructure;
 using System;
 

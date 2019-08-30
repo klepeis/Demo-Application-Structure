@@ -1,4 +1,4 @@
-﻿using Product.Domain.Product.DataAccessObjects.Entitys;
+﻿using Product.Domain.Product.DataAccessObjects.DataModels.Entitys;
 
 namespace Product.Domain.Product.DataAccessObjects
 {

@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Product.Domain.Infrastructure.EntityTypeConfigurations;
-using Product.Domain.Inventory.DataAccessObjects.Entitys;
-using Product.Domain.Product.DataAccessObjects.Entitys;
+using Product.Domain.Inventory.DataAccessObjects.DataModels.Entitys;
+using Product.Domain.Product.DataAccessObjects.DataModels.Entitys;
 
 namespace Product.Domain.Infrastructure
 {

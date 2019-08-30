@@ -1,8 +1,8 @@
-﻿using Product.Domain.Inventory.DataAccessObjects.Entitys;
+﻿using Product.Domain.Inventory.DataAccessObjects.DataModels.Entitys;
 using Product.Domain.Product.BusinessObjects.BusinessModels;
 using System;
 
-namespace Product.Domain.Product.DataAccessObjects.Entitys
+namespace Product.Domain.Product.DataAccessObjects.DataModels.Entitys
 {
     internal class ProductDetailEntity
     {

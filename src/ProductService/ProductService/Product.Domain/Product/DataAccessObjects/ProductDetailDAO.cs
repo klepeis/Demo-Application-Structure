@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Product.Domain.Infrastructure;
-using Product.Domain.Product.DataAccessObjects.Entitys;
+using Product.Domain.Product.DataAccessObjects.DataModels.Entitys;
 using System;
 
 namespace Product.Domain.Product.DataAccessObjects
