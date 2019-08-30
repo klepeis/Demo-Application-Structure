@@ -1,10 +1,10 @@
-﻿using Order.OrderDetails.BusinessObjects.Models;
-using Order.OrderDetails.DataAccessObjects;
+﻿using Order.Domain.OrderDetails.BusinessObjects.Models;
+using Order.Domain.OrderDetails.DataAccessObjects;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Order.OrderDetails.BusinessObjects
+namespace Order.Domain.OrderDetails.BusinessObjects
 {
     internal class OrderDetailsBO : IOrderDetailsBO
     {

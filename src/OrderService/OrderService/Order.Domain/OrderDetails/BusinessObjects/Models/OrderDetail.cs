@@ -1,9 +1,9 @@
-﻿using Order.OrderDetails.SharedModels;
+﻿using Order.Domain.OrderDetails.SharedModels;
 using System;
 
-namespace Order.OrderDetails.BusinessObjects.Models
+namespace Order.Domain.OrderDetails.BusinessObjects.Models
 {
-    public  class OrderDetail
+    public class OrderDetail
     {
         public long Id { get; set; }
         public long CustomerId { get; set; }

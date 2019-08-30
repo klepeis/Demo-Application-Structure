@@ -1,7 +1,7 @@
-﻿using Order.Infrastructure.DbContexts;
-using Order.OrderDetails.DataAccessObjects;
+﻿using Order.Domain.Infrastructure;
+using Order.Domain.OrderDetails.DataAccessObjects;
 
-namespace Order.Factories
+namespace Order.Domain.Factories
 {
     internal class OrderDAOFactory : IOrderDAOFactory
     {

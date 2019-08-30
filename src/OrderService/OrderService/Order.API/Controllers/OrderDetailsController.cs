@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Order.Customer.Profile.BusinessObjects;
-using Order.OrderDetails.BusinessObjects;
-using Order.OrderDetails.BusinessObjects.Models;
+using Order.Domain.OrderDetails.BusinessObjects;
+using Order.Domain.OrderDetails.BusinessObjects.Models;
 using Order.Product.InventoryDetail.BusinessObjects;
 using Order.Product.ProductDetail.BusinessObjects;
 using System.Collections.Generic;

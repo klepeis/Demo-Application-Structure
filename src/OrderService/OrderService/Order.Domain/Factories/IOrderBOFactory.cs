@@ -1,6 +1,6 @@
-﻿using Order.OrderDetails.BusinessObjects;
+﻿using Order.Domain.OrderDetails.BusinessObjects;
 
-namespace Order.Factories
+namespace Order.Domain.Factories
 {
     public interface IOrderBOFactory
     {

@@ -1,9 +1,10 @@
-﻿using Order.OrderDetails.SharedModels;
+﻿using Order.Domain.OrderDetails.BusinessObjects.Models;
+using Order.Domain.OrderDetails.SharedModels;
 using System;
 
-namespace Order.OrderDetails.DataAccessObjects.Models
+namespace Order.Domain.OrderDetails.DataAccessObjects.DataModels.Entitys
 {
-    internal class OrderDetail
+    internal class OrderDetailEntity
     {
         public long Id { get; set; }
         public long CustomerId { get; set; }
@@ -11,9 +12,9 @@ namespace Order.OrderDetails.DataAccessObjects.Models
         public DateTime CreatedDate { get; set; }
         public DateTime ModifiedData { get; set; }
 
-        internal BusinessObjects.Models.OrderDetail ConvertToBusinessOjects()
+        internal OrderDetail ConvertToBusinessOjects()
         {
-            return new BusinessObjects.Models.OrderDetail()
+            return new OrderDetail()
             {
                 CreatedDate = this.CreatedDate,
                 CustomerId = this.CustomerId,

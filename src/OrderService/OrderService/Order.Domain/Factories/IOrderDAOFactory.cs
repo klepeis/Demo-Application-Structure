@@ -1,6 +1,6 @@
-﻿using Order.OrderDetails.DataAccessObjects;
+﻿using Order.Domain.OrderDetails.DataAccessObjects;
 
-namespace Order.Factories
+namespace Order.Domain.Factories
 {
     internal interface IOrderDAOFactory
     {

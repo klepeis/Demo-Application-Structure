@@ -1,8 +1,8 @@
-﻿using Order.OrderDetails.BusinessObjects.Models;
+﻿using Order.Domain.OrderDetails.BusinessObjects.Models;
 using System;
 using System.Collections.Generic;
 
-namespace Order.OrderDetails.BusinessObjects
+namespace Order.Domain.OrderDetails.BusinessObjects
 {
     public interface IOrderDetailsBO
     {

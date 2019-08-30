@@ -1,12 +1,12 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Order.Customer.Extensions.DependencyInjection;
-using Order.Factories;
-using Order.Infrastructure.DbContexts;
-using Order.OrderDetails.BusinessObjects;
+using Order.Domain.Factories;
+using Order.Domain.Infrastructure;
+using Order.Domain.OrderDetails.BusinessObjects;
 using Order.Product.Extensions.DependencyInjection;
 
-namespace Order.Extensions.DependencyInjection
+namespace Order.Domain.Extensions.DependencyInjection
 {
     public static class OrderServiceCollectionExtensions
     {
