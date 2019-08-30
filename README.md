@@ -1,7 +1,7 @@
 # Demo-Application-Structure
 
 ## Features
- 1.  Componentization
+ 1.  Component-ization
      *  Domain services are structured in such a way that if necessary the core functionality of a domain service could be switched from that of WebApi to some other medium.
  2.  Layer Separation
      * Defined Data and Business Layers, factories for object creation, Business/Data Models.
