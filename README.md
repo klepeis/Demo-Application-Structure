@@ -17,7 +17,7 @@
      * Implemented as middleware component.
  8.  Unit Tests
 
-## TODO
+## Todo
  1. Create NuGet library of Health Checks.
  2. Create NuGet library for middleware components.
  3. Create NuGet library for unit tests helps with HttpClient helpers.
