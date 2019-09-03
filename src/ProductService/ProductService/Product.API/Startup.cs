@@ -3,9 +3,11 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Product.API.BackgroundTasks.Options;
-using Product.API.BackgroundTasks.Tasks;
+using Product.API.Infrastructure.BackgroundTasks.Options;
+using Product.API.Infrastructure.BackgroundTasks.Tasks;
+using Product.API.Infrastructure.HealthCheck;
 using Product.Domain.Extensions.DependencyInjection;
+using System;
 
 namespace Product.API
 {
@@ -35,7 +37,9 @@ namespace Product.API
             services.AddSwaggerDocument();
 
             // Register Health Checks
-            services.AddHealthChecks();
+            services.AddHealthChecks()
+                .AddUrlGroup(new Uri("https://google.com"),"Google - Works")
+                .AddUrlGroup(new Uri("https://IDontwork.com"), "Dummy - Fails");
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -56,7 +60,11 @@ namespace Product.API
             }
 
             // Create Health Checks Endpoint.
+            // Default
             app.UseHealthChecks("/health");
+            // Custom Response
+            app.UseHealthChecks("/healthDetails", new HCOptions());
+
             app.UseHttpsRedirection();
             app.UseMvc();
         }

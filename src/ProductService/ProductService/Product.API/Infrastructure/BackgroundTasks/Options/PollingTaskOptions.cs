@@ -1,4 +1,4 @@
-﻿namespace Product.API.BackgroundTasks.Options
+﻿namespace Product.API.Infrastructure.BackgroundTasks.Options
 {
     public class PollingTaskOptions
     {

@@ -4,9 +4,9 @@ using System.Threading.Tasks;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-using Product.API.BackgroundTasks.Options;
+using Product.API.Infrastructure.BackgroundTasks.Options;
 
-namespace Product.API.BackgroundTasks.Tasks
+namespace Product.API.Infrastructure.BackgroundTasks.Tasks
 {
     public class PollingTask : BackgroundService
     {
