@@ -17,7 +17,7 @@ namespace Product.Domain.Inventory.BusinessObjects
         public InventoryDetail AddInventoryDetail(InventoryDetail itemToAdd)
         {
             return _inventoryDetailDAO.AddInventoryDetail(new InventoryDetailEntity(itemToAdd))
-                                      .ConvertToDTO();
+                                      .ConvertToBusinessModel();
         }
 
         public void DeleteInventoryDetail(long id)
@@ -35,13 +35,13 @@ namespace Product.Domain.Inventory.BusinessObjects
         public InventoryDetail GetInventoryDetail(long id)
         {
             return _inventoryDetailDAO.GetInventoryDetail(id)
-                                    .ConvertToDTO();
+                                    .ConvertToBusinessModel();
         }
 
         public InventoryDetail UpdateInventoryDetail(InventoryDetail itemToUpdate)
         {
             return _inventoryDetailDAO.UpdateInventoryDetail(new InventoryDetailEntity(itemToUpdate))
-                                      .ConvertToDTO();
+                                      .ConvertToBusinessModel();
         }
     }
 }

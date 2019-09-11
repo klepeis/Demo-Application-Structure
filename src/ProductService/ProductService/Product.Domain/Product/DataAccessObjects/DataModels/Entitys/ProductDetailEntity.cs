@@ -27,7 +27,7 @@ namespace Product.Domain.Product.DataAccessObjects.DataModels.Entitys
         public DateTime CreatedDate { get; set; }
         public DateTime ModifiedDate { get; set; }
 
-        internal ProductDetail ConvertToDTO()
+        internal ProductDetail ConvertToBusinessModel()
         {
             return new BusinessObjects.BusinessModels.ProductDetail()
             {

@@ -21,7 +21,7 @@ namespace Product.Domain.Inventory.DataAccessObjects.DataModels.Entitys
         public DateTime CreatedDate { get; set; }
         public DateTime ModifiedDate { get; set; }
 
-        internal InventoryDetail ConvertToDTO()
+        internal InventoryDetail ConvertToBusinessModel()
         {
             return new InventoryDetail()
             {

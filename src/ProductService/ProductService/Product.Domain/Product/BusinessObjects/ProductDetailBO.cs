@@ -17,7 +17,7 @@ namespace Product.Domain.Product.BusinessObjects
         public ProductDetail AddProduct(BusinessModels.ProductDetail productToAdd)
         {
             return _productDetailDAO.AddProduct(new ProductDetailEntity(productToAdd))
-                                    .ConvertToDTO();
+                                    .ConvertToBusinessModel();
         }
 
         public void DeleteProduct(long id)
@@ -35,13 +35,13 @@ namespace Product.Domain.Product.BusinessObjects
         public ProductDetail GetProduct(long id)
         {
             return _productDetailDAO.GetProduct(id)
-                                    .ConvertToDTO();
+                                    .ConvertToBusinessModel();
         }
 
         public ProductDetail UpdateProduct(BusinessModels.ProductDetail productToUpdate)
         {
             return _productDetailDAO.UpdateProduct(new ProductDetailEntity(productToUpdate))
-                                    .ConvertToDTO();
+                                    .ConvertToBusinessModel();
         }
     }
 }

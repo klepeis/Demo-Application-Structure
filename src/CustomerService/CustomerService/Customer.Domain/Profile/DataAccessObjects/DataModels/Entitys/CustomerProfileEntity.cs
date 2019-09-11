@@ -29,7 +29,7 @@ namespace Customer.Domain.Profile.DataAccessObjects.Models.Entitys
         public DateTime CreatedDate { get; set; }
         public DateTime? ModifiedDate { get; set; }
 
-        internal CustomerProfile ConvertToDTO()
+        internal CustomerProfile ConvertToBusinessModel()
         {
             return new CustomerProfile()
             {

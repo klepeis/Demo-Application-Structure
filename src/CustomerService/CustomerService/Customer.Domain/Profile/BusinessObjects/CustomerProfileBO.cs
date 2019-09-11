@@ -25,7 +25,7 @@ namespace Customer.Domain.Profile.BusinessObjects
         public CustomerProfile AddProfile(CustomerProfile profileToAdd)
         {
             return _customerProfileDAO.AddProfile(new CustomerProfileEntity(profileToAdd))
-                                      .ConvertToDTO();
+                                      .ConvertToBusinessModel();
         }
 
         /// <summary>
@@ -58,7 +58,7 @@ namespace Customer.Domain.Profile.BusinessObjects
                 return null;
             }
 
-            return result.ConvertToDTO();
+            return result.ConvertToBusinessModel();
         }
 
         /// <summary>
@@ -69,7 +69,7 @@ namespace Customer.Domain.Profile.BusinessObjects
         public CustomerProfile UpdateProfile(CustomerProfile updatedProfile)
         {
             return _customerProfileDAO.UpdateProfile(new CustomerProfileEntity(updatedProfile))
-                                      .ConvertToDTO();
+                                      .ConvertToBusinessModel();
         }
     }
 }

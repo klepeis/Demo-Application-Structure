@@ -40,7 +40,7 @@ namespace Customer.Domain.UnitTests.Profile.BusinessObjects
             });
 
             // Assert
-            CustomerProfile expected = seedData.ConvertToDTO();
+            CustomerProfile expected = seedData.ConvertToBusinessModel();
 
             Assert.AreEqual(expected.CreatedDate, actual.CreatedDate);
             Assert.AreEqual(expected.FirstName, actual.FirstName);
@@ -94,7 +94,7 @@ namespace Customer.Domain.UnitTests.Profile.BusinessObjects
             CustomerProfile actual = customerProfileBO.GetProfile(123);
 
             // Assert
-            CustomerProfile expected = seedData.ConvertToDTO();
+            CustomerProfile expected = seedData.ConvertToBusinessModel();
 
             Assert.AreEqual(expected.CreatedDate, actual.CreatedDate);
             Assert.AreEqual(expected.FirstName, actual.FirstName);
@@ -150,7 +150,7 @@ namespace Customer.Domain.UnitTests.Profile.BusinessObjects
             });
 
             // Assert
-            CustomerProfile expected = seedData.ConvertToDTO();
+            CustomerProfile expected = seedData.ConvertToBusinessModel();
 
             Assert.AreEqual(expected.CreatedDate, actual.CreatedDate);
             Assert.AreEqual(expected.ModifiedDate, actual.ModifiedDate);
