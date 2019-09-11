@@ -1,15 +1,14 @@
 ﻿using Customer.Domain.CustomerComponent.BusinessObjects;
-using Customer.Domain.CustomerComponent.BusinessObjects.BusinessModels;
 using Customer.Domain.CustomerComponent.DataAccessObjects;
 using Customer.Domain.CustomerComponent.DataAccessObjects.Models.Entities;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using System;
 
-namespace Customer.Domain.UnitTests.Profile.BusinessObjects
+namespace Customer.Domain.UnitTests.CustomerComponent.BusinessObjects
 {
     [TestClass]
-    public class CustomerProfileBOTests
+    public class CustomerBOTests
     {
         #region AddProfile
 
@@ -32,7 +31,7 @@ namespace Customer.Domain.UnitTests.Profile.BusinessObjects
 
             // Act
             CustomerBO customerProfileBO = new CustomerBO(mockCustomerProfileDAO.Object);
-            CustomerComponent.BusinessObjects.BusinessModels.Customer actual = customerProfileBO.AddProfile(new CustomerComponent.BusinessObjects.BusinessModels.Customer()
+            Domain.CustomerComponent.BusinessObjects.BusinessModels.Customer actual = customerProfileBO.AddProfile(new Domain.CustomerComponent.BusinessObjects.BusinessModels.Customer()
             {
                 FirstName = "Test",
                 Id = 123,
@@ -40,7 +39,7 @@ namespace Customer.Domain.UnitTests.Profile.BusinessObjects
             });
 
             // Assert
-            CustomerComponent.BusinessObjects.BusinessModels.Customer expected = seedData.ConvertToBusinessModel();
+            Domain.CustomerComponent.BusinessObjects.BusinessModels.Customer expected = seedData.ConvertToBusinessModel();
 
             Assert.AreEqual(expected.CreatedDate, actual.CreatedDate);
             Assert.AreEqual(expected.FirstName, actual.FirstName);
@@ -91,10 +90,10 @@ namespace Customer.Domain.UnitTests.Profile.BusinessObjects
 
             // Act
             CustomerBO customerProfileBO = new CustomerBO(mockCustomerProfileDAO.Object);
-            CustomerComponent.BusinessObjects.BusinessModels.Customer actual = customerProfileBO.GetProfile(123);
+            Domain.CustomerComponent.BusinessObjects.BusinessModels.Customer actual = customerProfileBO.GetProfile(123);
 
             // Assert
-            CustomerComponent.BusinessObjects.BusinessModels.Customer expected = seedData.ConvertToBusinessModel();
+            Domain.CustomerComponent.BusinessObjects.BusinessModels.Customer expected = seedData.ConvertToBusinessModel();
 
             Assert.AreEqual(expected.CreatedDate, actual.CreatedDate);
             Assert.AreEqual(expected.FirstName, actual.FirstName);
@@ -112,7 +111,7 @@ namespace Customer.Domain.UnitTests.Profile.BusinessObjects
 
             // Act
             CustomerBO customerProfileBO = new CustomerBO(mockCustomerProfileDAO.Object);
-            CustomerComponent.BusinessObjects.BusinessModels.Customer actual = customerProfileBO.GetProfile(It.IsAny<long>());
+            Domain.CustomerComponent.BusinessObjects.BusinessModels.Customer actual = customerProfileBO.GetProfile(It.IsAny<long>());
 
             // Assert
             Assert.IsNull(actual);
@@ -141,7 +140,7 @@ namespace Customer.Domain.UnitTests.Profile.BusinessObjects
 
             // Act
             CustomerBO customerProfileBO = new CustomerBO(mockCustomerProfileDAO.Object);
-            CustomerComponent.BusinessObjects.BusinessModels.Customer actual = customerProfileBO.UpdateProfile(new CustomerComponent.BusinessObjects.BusinessModels.Customer()
+            Domain.CustomerComponent.BusinessObjects.BusinessModels.Customer actual = customerProfileBO.UpdateProfile(new Domain.CustomerComponent.BusinessObjects.BusinessModels.Customer()
             {
                 FirstName = "Test",
                 Id = 123,
@@ -150,7 +149,7 @@ namespace Customer.Domain.UnitTests.Profile.BusinessObjects
             });
 
             // Assert
-            CustomerComponent.BusinessObjects.BusinessModels.Customer expected = seedData.ConvertToBusinessModel();
+            Domain.CustomerComponent.BusinessObjects.BusinessModels.Customer expected = seedData.ConvertToBusinessModel();
 
             Assert.AreEqual(expected.CreatedDate, actual.CreatedDate);
             Assert.AreEqual(expected.ModifiedDate, actual.ModifiedDate);

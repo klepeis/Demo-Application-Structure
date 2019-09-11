@@ -4,10 +4,10 @@ using Customer.Domain.CustomerComponent.DataAccessObjects.Models.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Customer.Domain.UnitTests.Profile.DataAccessObjects
+namespace Customer.Domain.UnitTests.CustomerComponent.DataAccessObjects
 {
     [TestClass]
-    public class CustomerProfileDAOTests
+    public class CustomerDAOTests
     {
         #region AddProfile
 
