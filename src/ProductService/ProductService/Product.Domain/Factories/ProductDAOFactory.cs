@@ -1,6 +1,6 @@
 ﻿using Product.Domain.Infrastructure;
-using Product.Domain.Inventory.DataAccessObjects;
-using Product.Domain.Product.DataAccessObjects;
+using Product.Domain.InventoryComponent.DataAccessObjects;
+using Product.Domain.ProductComponent.DataAccessObjects;
 using System;
 
 namespace Product.Domain.Factories
@@ -14,14 +14,14 @@ namespace Product.Domain.Factories
             _productDbContext = productDbContext ?? throw new ArgumentNullException(nameof(productDbContext));
         }
 
-        public IInventoryDetailDAO CreateInventoryDetailDAO()
+        public IInventoryDAO CreateInventoryDetailDAO()
         {
-            return new InventoryDetailDAO(_productDbContext);
+            return new InventoryDAO(_productDbContext);
         }
 
-        public IProductDetailDAO CreateProductDetailDAO()
+        public IProductDAO CreateProductDetailDAO()
         {
-            return new ProductDetailDAO(_productDbContext);
+            return new ProductDAO(_productDbContext);
         }
     }
 }

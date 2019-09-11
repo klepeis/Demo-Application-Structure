@@ -1,38 +1,38 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Product.Domain.Infrastructure;
-using Product.Domain.Product.DataAccessObjects.DataModels.Entitys;
+using Product.Domain.ProductComponent.DataAccessObjects.DataModels.Entities;
 using System;
 
-namespace Product.Domain.Product.DataAccessObjects
+namespace Product.Domain.ProductComponent.DataAccessObjects
 {
-    internal class ProductDetailDAO : IProductDetailDAO
+    internal class ProductDAO : IProductDAO
     {
         private readonly ProductDbContext _productDbContext;
 
-        public ProductDetailDAO(ProductDbContext productDbContext)
+        public ProductDAO(ProductDbContext productDbContext)
         {
             _productDbContext = productDbContext ?? throw new ArgumentNullException(nameof(productDbContext));
         }
 
-        public ProductDetailEntity AddProduct(ProductDetailEntity productToAdd)
+        public ProductEntity AddProduct(ProductEntity productToAdd)
         {
             _productDbContext.Products.Add(productToAdd);
             _productDbContext.SaveChanges();
             return productToAdd;
         }
 
-        public void DeleteProduct(ProductDetailEntity productToDelete)
+        public void DeleteProduct(ProductEntity productToDelete)
         {
             _productDbContext.Products.Remove(productToDelete);
             _productDbContext.SaveChanges();
         }
 
-        public ProductDetailEntity GetProduct(long id)
+        public ProductEntity GetProduct(long id)
         {
             return _productDbContext.Products.Find(id);
         }
 
-        public ProductDetailEntity UpdateProduct(ProductDetailEntity productToUpdate)
+        public ProductEntity UpdateProduct(ProductEntity productToUpdate)
         {
             _productDbContext.Entry(productToUpdate).State = EntityState.Modified;
             _productDbContext.SaveChanges();

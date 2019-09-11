@@ -1,5 +1,5 @@
-﻿using Product.Domain.Inventory.BusinessObjects;
-using Product.Domain.Product.BusinessObjects;
+﻿using Product.Domain.InventoryComponent.BusinessObjects;
+using Product.Domain.ProductComponent.BusinessObjects;
 using System;
 
 namespace Product.Domain.Factories
@@ -13,14 +13,14 @@ namespace Product.Domain.Factories
             _productDAOFactory = productDAOFactory ?? throw new ArgumentNullException(nameof(productDAOFactory));
         }
 
-        public IInventoryDetailBO CreateInventoryDetailBO()
+        public IInventoryBO CreateInventoryDetailBO()
         {
-            return new InventoryDetailBO(_productDAOFactory.CreateInventoryDetailDAO());
+            return new InventoryBO(_productDAOFactory.CreateInventoryDetailDAO());
         }
 
-        public IProductDetailBO CreateProductDetailBO()
+        public IProducBO CreateProductDetailBO()
         {
-            return new ProductDetailBO(_productDAOFactory.CreateProductDetailDAO());
+            return new ProductBO(_productDAOFactory.CreateProductDetailDAO());
         }
     }
 }

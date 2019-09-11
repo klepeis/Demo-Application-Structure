@@ -1,12 +1,15 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using Product.Domain.Inventory.DataAccessObjects.DataModels.Entitys;
+using Product.Domain.InventoryComponent.DataAccessObjects.DataModels.Entities;
 
 namespace Product.Domain.Infrastructure.EntityTypeConfigurations
 {
-    internal class InventoryDetailTypeConfiguration : IEntityTypeConfiguration<InventoryDetailEntity>
+    /// <summary>
+    /// Entity Type Configuration for InventoryDetail model.
+    /// </summary>
+    internal class InventoryDetailEntityTypeConfiguration : IEntityTypeConfiguration<InventoryEntity>
     {
-        public void Configure(EntityTypeBuilder<InventoryDetailEntity> builder)
+        public void Configure(EntityTypeBuilder<InventoryEntity> builder)
         {
             builder.ToTable("inventory");
             builder.HasKey(e => e.ProductId);

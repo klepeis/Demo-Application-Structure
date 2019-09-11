@@ -1,11 +1,11 @@
-﻿using Product.Domain.Inventory.BusinessObjects;
-using Product.Domain.Product.BusinessObjects;
+﻿using Product.Domain.InventoryComponent.BusinessObjects;
+using Product.Domain.ProductComponent.BusinessObjects;
 
 namespace Product.Domain.Factories
 {
     public interface IProductBOFactory
     {
-        IInventoryDetailBO CreateInventoryDetailBO();
-        IProductDetailBO CreateProductDetailBO();
+        IInventoryBO CreateInventoryDetailBO();
+        IProducBO CreateProductDetailBO();
     }
 }

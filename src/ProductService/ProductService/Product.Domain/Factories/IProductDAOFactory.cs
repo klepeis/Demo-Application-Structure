@@ -1,11 +1,11 @@
-﻿using Product.Domain.Inventory.DataAccessObjects;
-using Product.Domain.Product.DataAccessObjects;
+﻿using Product.Domain.InventoryComponent.DataAccessObjects;
+using Product.Domain.ProductComponent.DataAccessObjects;
 
 namespace Product.Domain.Factories
 {
     internal interface IProductDAOFactory
     {
-        IInventoryDetailDAO CreateInventoryDetailDAO();
-        IProductDetailDAO CreateProductDetailDAO();
+        IInventoryDAO CreateInventoryDetailDAO();
+        IProductDAO CreateProductDetailDAO();
     }
 }

@@ -2,8 +2,8 @@
 using Microsoft.Extensions.DependencyInjection;
 using Product.Domain.Factories;
 using Product.Domain.Infrastructure;
-using Product.Domain.Inventory.BusinessObjects;
-using Product.Domain.Product.BusinessObjects;
+using Product.Domain.InventoryComponent.BusinessObjects;
+using Product.Domain.ProductComponent.BusinessObjects;
 
 namespace Product.Domain.Extensions.DependencyInjection
 {
@@ -19,12 +19,12 @@ namespace Product.Domain.Extensions.DependencyInjection
             services.AddScoped<IProductDAOFactory, ProductDAOFactory>();
             services.AddScoped<IProductBOFactory, ProductBOFactory>();
 
-            services.AddScoped<IInventoryDetailBO>((sp) =>
+            services.AddScoped<IInventoryBO>((sp) =>
             {
                 return sp.GetRequiredService<IProductBOFactory>().CreateInventoryDetailBO();
             });
 
-            services.AddScoped<IProductDetailBO>((sp) => 
+            services.AddScoped<IProducBO>((sp) => 
             {
                 return sp.GetRequiredService<IProductBOFactory>().CreateProductDetailBO();
             });

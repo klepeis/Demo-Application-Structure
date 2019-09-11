@@ -1,14 +1,14 @@
-﻿using Product.Domain.Inventory.DataAccessObjects.DataModels.Entitys;
-using Product.Domain.Product.BusinessObjects.BusinessModels;
+﻿using Product.Domain.InventoryComponent.DataAccessObjects.DataModels.Entities;
+using Product.Domain.ProductComponent.BusinessObjects.BusinessModels;
 using System;
 
-namespace Product.Domain.Product.DataAccessObjects.DataModels.Entitys
+namespace Product.Domain.ProductComponent.DataAccessObjects.DataModels.Entities
 {
-    internal class ProductDetailEntity
+    internal class ProductEntity
     {
-        public ProductDetailEntity() { }
+        public ProductEntity() { }
 
-        public ProductDetailEntity(BusinessObjects.BusinessModels.ProductDetail productDetail)
+        public ProductEntity(BusinessObjects.BusinessModels.Product productDetail)
         {
             this.CreatedDate = productDetail.CreatedDate;
             this.Description = productDetail.Description;
@@ -27,9 +27,9 @@ namespace Product.Domain.Product.DataAccessObjects.DataModels.Entitys
         public DateTime CreatedDate { get; set; }
         public DateTime ModifiedDate { get; set; }
 
-        internal ProductDetail ConvertToBusinessModel()
+        internal BusinessObjects.BusinessModels.Product ConvertToBusinessModel()
         {
-            return new BusinessObjects.BusinessModels.ProductDetail()
+            return new BusinessObjects.BusinessModels.Product()
             {
                 CreatedDate = this.CreatedDate,
                 Description = this.Description,
@@ -43,7 +43,7 @@ namespace Product.Domain.Product.DataAccessObjects.DataModels.Entitys
 
         #region Navigational Properties
 
-        public InventoryDetailEntity InventoryDetail { get; set; }
+        public InventoryEntity InventoryDetail { get; set; }
 
         #endregion
     }
