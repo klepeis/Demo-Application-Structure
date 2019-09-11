@@ -1,5 +1,5 @@
 ﻿using Customer.Domain.Infrastructure;
-using Customer.Domain.Profile.DataAccessObjects;
+using Customer.Domain.Customer.DataAccessObjects;
 using System;
 
 namespace Customer.Domain.Factories
@@ -17,9 +17,9 @@ namespace Customer.Domain.Factories
         /// Create an instance of the CustomerProfileDAO.
         /// </summary>
         /// <returns></returns>
-        public ICustomerProfileDAO CreateCustomerProfileDAO()
+        public ICustomerDAO CreateCustomerProfileDAO()
         {
-            return new CustomerProfileDAO(_customerDbContext);
+            return new CustomerDAO(_customerDbContext);
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿using Customer.Domain.Factories;
 using Customer.Domain.Infrastructure;
-using Customer.Domain.Profile.BusinessObjects;
+using Customer.Domain.Customer.BusinessObjects;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -18,7 +18,7 @@ namespace Customer.Domain.Extensions.DependencyInjection
             services.AddScoped<ICustomerDAOFactory, CustomerDAOFactory>();
             services.AddScoped<ICustomerBOFactory, CustomerBOFactory>();
 
-            services.AddScoped<ICustomerProfileBO>((sp) =>
+            services.AddScoped<ICustomerBO>((sp) =>
             {
                 return sp.GetRequiredService<ICustomerBOFactory>().CreateCustomerProfileBO();
             });

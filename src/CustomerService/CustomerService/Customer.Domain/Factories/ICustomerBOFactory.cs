@@ -1,4 +1,4 @@
-﻿using Customer.Domain.Profile.BusinessObjects;
+﻿using Customer.Domain.Customer.BusinessObjects;
 
 namespace Customer.Domain.Factories
 {
@@ -8,6 +8,6 @@ namespace Customer.Domain.Factories
         /// Create an instance of the CustomerProfileDAO.
         /// </summary>
         /// <returns></returns>
-        ICustomerProfileBO CreateCustomerProfileBO();
+        ICustomerBO CreateCustomerProfileBO();
     }
 }

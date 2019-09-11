@@ -1,18 +1,18 @@
 ﻿using Customer.Domain.Infrastructure;
-using Customer.Domain.Profile.DataAccessObjects.Models.Entitys;
+using Customer.Domain.Customer.DataAccessObjects.Models.Entities;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Runtime.CompilerServices;
 
 [assembly: InternalsVisibleTo("Customer.Tests")]
 [assembly: InternalsVisibleTo("DynamicProxyGenAssembly2")]
-namespace Customer.Domain.Profile.DataAccessObjects
+namespace Customer.Domain.Customer.DataAccessObjects
 {
-    internal class CustomerProfileDAO : ICustomerProfileDAO
+    internal class CustomerDAO : ICustomerDAO
     {
         private readonly CustomerDbContext _customerDbContext;
 
-        public CustomerProfileDAO(CustomerDbContext customerDbContext)
+        public CustomerDAO(CustomerDbContext customerDbContext)
         {
             _customerDbContext = customerDbContext ?? throw new ArgumentNullException(nameof(customerDbContext));
         }
@@ -22,7 +22,7 @@ namespace Customer.Domain.Profile.DataAccessObjects
         /// </summary>
         /// <param name="profileToAdd">Customer profile to add.</param>
         /// <returns>Customer Profile that was added.</returns>
-        public CustomerProfileEntity AddProfile(CustomerProfileEntity profileToAdd)
+        public CustomerEntity AddProfile(CustomerEntity profileToAdd)
         {
             _customerDbContext.CustomerProfiles.Add(profileToAdd);
             _customerDbContext.SaveChanges();
@@ -33,7 +33,7 @@ namespace Customer.Domain.Profile.DataAccessObjects
         /// Delete a Customer Profile.
         /// </summary>
         /// <param name="profileToDelete">Profile to delete</param>
-        public void DeleteProfile(CustomerProfileEntity profileToDelete)
+        public void DeleteProfile(CustomerEntity profileToDelete)
         {
             _customerDbContext.CustomerProfiles.Remove(profileToDelete);
             _customerDbContext.SaveChanges();
@@ -44,7 +44,7 @@ namespace Customer.Domain.Profile.DataAccessObjects
         /// </summary>
         /// <param name="id">Customer Profile Id</param>
         /// <returns>Customer Profile if found, NULL if no profile located.</returns>
-        public CustomerProfileEntity GetProfile(long id)
+        public CustomerEntity GetProfile(long id)
         {
             return _customerDbContext.CustomerProfiles.Find(id);
         }
@@ -54,7 +54,7 @@ namespace Customer.Domain.Profile.DataAccessObjects
         /// </summary>
         /// <param name="updatedProfile"></param>
         /// <returns></returns>
-        public CustomerProfileEntity UpdateProfile(CustomerProfileEntity updatedProfile)
+        public CustomerEntity UpdateProfile(CustomerEntity updatedProfile)
         {
             _customerDbContext.Entry(updatedProfile).State = EntityState.Modified;
             _customerDbContext.SaveChanges();

@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Customer.Domain.Profile.BusinessObjects.BusinessModels
+namespace Customer.Domain.Customer.BusinessObjects.BusinessModels
 {
-    public class CustomerProfile : IEqualityComparer<CustomerProfile>
+    public class Customer : IEqualityComparer<Customer>
     {
         public long Id { get; set; }
         public string FirstName { get; set; }
@@ -11,7 +11,7 @@ namespace Customer.Domain.Profile.BusinessObjects.BusinessModels
         public DateTime CreatedDate { get; set; }
         public DateTime? ModifiedDate { get; set; }
 
-        public bool Equals(CustomerProfile x, CustomerProfile y)
+        public bool Equals(Customer x, Customer y)
         {
             if (ReferenceEquals(x, y)) return true;
             if (ReferenceEquals(x, null)) return false;
@@ -20,7 +20,7 @@ namespace Customer.Domain.Profile.BusinessObjects.BusinessModels
             return x.Id == y.Id && x.FirstName == y.FirstName && x.LastName == y.LastName && x.CreatedDate.Equals(y.CreatedDate) && Nullable.Equals(x.ModifiedDate, y.ModifiedDate);
         }
 
-        public int GetHashCode(CustomerProfile obj)
+        public int GetHashCode(Customer obj)
         {
             unchecked
             {

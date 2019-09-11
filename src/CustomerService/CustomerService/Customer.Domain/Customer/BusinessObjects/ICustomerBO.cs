@@ -1,37 +1,32 @@
-﻿using Customer.Domain.Profile.DataAccessObjects.Models.Entitys;
-using System.Runtime.CompilerServices;
-
-[assembly: InternalsVisibleTo("Customer.Tests")]
-[assembly: InternalsVisibleTo("DynamicProxyGenAssembly2")]
-namespace Customer.Domain.Profile.DataAccessObjects
+﻿namespace Customer.Domain.Customer.BusinessObjects
 {
-    internal interface ICustomerProfileDAO
+    public interface ICustomerBO
     {
         /// <summary>
         /// Add a new Customer Profile.
         /// </summary>
         /// <param name="profileToAdd">Customer profile to add.</param>
         /// <returns>Customer Profile that was added.</returns>
-        CustomerProfileEntity AddProfile(CustomerProfileEntity profileToAdd);
+        BusinessModels.Customer AddProfile(BusinessModels.Customer profileToAdd);
 
         /// <summary>
         /// Delete a Customer Profile.
         /// </summary>
-        /// <param name="profileToDelete">Profile to delete</param>
-        void DeleteProfile(CustomerProfileEntity profileToDelete);
+        /// <param name="id">Customer Profile Id</param>
+        void DeleteProfile(long id);
 
         /// <summary>
         /// Retrieve a customer profile by Id.
         /// </summary>
         /// <param name="id">Customer Profile Id</param>
         /// <returns>Customer Profile if found, NULL if no profile located.</returns>
-        CustomerProfileEntity GetProfile(long id);
+        BusinessModels.Customer GetProfile(long id);
 
         /// <summary>
         /// Update an existing profile.
         /// </summary>
         /// <param name="updatedProfile"></param>
         /// <returns></returns>
-        CustomerProfileEntity UpdateProfile(CustomerProfileEntity updatedProfile);
+        BusinessModels.Customer UpdateProfile(BusinessModels.Customer updatedProfile);
     }
 }

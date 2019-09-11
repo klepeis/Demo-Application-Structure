@@ -1,5 +1,5 @@
 ﻿using Customer.Domain.Factories;
-using Customer.Domain.Profile.BusinessObjects;
+using Customer.Domain.Customer.BusinessObjects;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 
@@ -18,10 +18,10 @@ namespace Customer.Domain.UnitTests.Factories
 
             // Act
             ICustomerBOFactory customerBOFactory = new CustomerBOFactory(mockICustomerDAOFactory.Object);
-            ICustomerProfileBO actual = customerBOFactory.CreateCustomerProfileBO();
+            ICustomerBO actual = customerBOFactory.CreateCustomerProfileBO();
 
             // Assert
-            Assert.IsInstanceOfType(actual, typeof(CustomerProfileBO));
+            Assert.IsInstanceOfType(actual, typeof(CustomerBO));
         }
 
         #endregion

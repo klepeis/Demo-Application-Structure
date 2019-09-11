@@ -1,18 +1,17 @@
-﻿using Customer.Domain.Profile.BusinessObjects.BusinessModels;
-using Customer.Domain.Profile.DataAccessObjects;
-using Customer.Domain.Profile.DataAccessObjects.Models.Entitys;
+﻿using Customer.Domain.Customer.DataAccessObjects;
+using Customer.Domain.Customer.DataAccessObjects.Models.Entities;
 using System;
 using System.Runtime.CompilerServices;
 
 [assembly: InternalsVisibleTo("Customer.Tests")]
 [assembly: InternalsVisibleTo("DynamicProxyGenAssembly2")]
-namespace Customer.Domain.Profile.BusinessObjects
+namespace Customer.Domain.Customer.BusinessObjects
 {
-    internal class CustomerProfileBO : ICustomerProfileBO
+    internal class CustomerBO : ICustomerBO
     {
-        private readonly ICustomerProfileDAO _customerProfileDAO;
+        private readonly ICustomerDAO _customerProfileDAO;
 
-        public CustomerProfileBO(ICustomerProfileDAO customerProfileDAO)
+        public CustomerBO(ICustomerDAO customerProfileDAO)
         {
             _customerProfileDAO = customerProfileDAO ?? throw new ArgumentNullException(nameof(customerProfileDAO));
         }
@@ -22,9 +21,9 @@ namespace Customer.Domain.Profile.BusinessObjects
         /// </summary>
         /// <param name="profileToAdd">Customer profile to add.</param>
         /// <returns>Customer Profile that was added.</returns>
-        public CustomerProfile AddProfile(CustomerProfile profileToAdd)
+        public BusinessModels.Customer AddProfile(BusinessModels.Customer profileToAdd)
         {
-            return _customerProfileDAO.AddProfile(new CustomerProfileEntity(profileToAdd))
+            return _customerProfileDAO.AddProfile(new CustomerEntity(profileToAdd))
                                       .ConvertToBusinessModel();
         }
 
@@ -49,7 +48,7 @@ namespace Customer.Domain.Profile.BusinessObjects
         /// </summary>
         /// <param name="id">Customer Profile Id</param>
         /// <returns>Customer Profile if found, NULL if no profile located.</returns>
-        public CustomerProfile GetProfile(long id)
+        public BusinessModels.Customer GetProfile(long id)
         {
             var result = _customerProfileDAO.GetProfile(id);
 
@@ -66,9 +65,9 @@ namespace Customer.Domain.Profile.BusinessObjects
         /// </summary>
         /// <param name="updatedProfile"></param>
         /// <returns></returns>
-        public CustomerProfile UpdateProfile(CustomerProfile updatedProfile)
+        public BusinessModels.Customer UpdateProfile(BusinessModels.Customer updatedProfile)
         {
-            return _customerProfileDAO.UpdateProfile(new CustomerProfileEntity(updatedProfile))
+            return _customerProfileDAO.UpdateProfile(new CustomerEntity(updatedProfile))
                                       .ConvertToBusinessModel();
         }
     }

@@ -1,6 +1,6 @@
 ﻿using Customer.Domain.Factories;
 using Customer.Domain.Infrastructure;
-using Customer.Domain.Profile.DataAccessObjects;
+using Customer.Domain.Customer.DataAccessObjects;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 
@@ -19,10 +19,10 @@ namespace Customer.Domain.UnitTests.Factories
 
             // Act
             ICustomerDAOFactory customerDAOFactory = new CustomerDAOFactory(mockCustomerDbContext.Object);
-            ICustomerProfileDAO actual = customerDAOFactory.CreateCustomerProfileDAO();
+            ICustomerDAO actual = customerDAOFactory.CreateCustomerProfileDAO();
 
             // Assert
-            Assert.IsInstanceOfType(actual, typeof(CustomerProfileDAO));
+            Assert.IsInstanceOfType(actual, typeof(CustomerDAO));
         }
 
         #endregion

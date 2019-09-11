@@ -1,4 +1,4 @@
-﻿using Customer.Domain.Profile.DataAccessObjects;
+﻿using Customer.Domain.Customer.DataAccessObjects;
 
 namespace Customer.Domain.Factories
 {
@@ -8,6 +8,6 @@ namespace Customer.Domain.Factories
         /// Create an instance of the CustomerProfileDAO.
         /// </summary>
         /// <returns></returns>
-        ICustomerProfileDAO CreateCustomerProfileDAO();
+        ICustomerDAO CreateCustomerProfileDAO();
     }
 }
