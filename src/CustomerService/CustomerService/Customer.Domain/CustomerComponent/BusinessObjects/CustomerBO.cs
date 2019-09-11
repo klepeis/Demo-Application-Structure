@@ -1,11 +1,11 @@
-﻿using Customer.Domain.Customer.DataAccessObjects;
-using Customer.Domain.Customer.DataAccessObjects.Models.Entities;
+﻿using Customer.Domain.CustomerComponent.DataAccessObjects;
+using Customer.Domain.CustomerComponent.DataAccessObjects.Models.Entities;
 using System;
 using System.Runtime.CompilerServices;
 
 [assembly: InternalsVisibleTo("Customer.Tests")]
 [assembly: InternalsVisibleTo("DynamicProxyGenAssembly2")]
-namespace Customer.Domain.Customer.BusinessObjects
+namespace Customer.Domain.CustomerComponent.BusinessObjects
 {
     internal class CustomerBO : ICustomerBO
     {

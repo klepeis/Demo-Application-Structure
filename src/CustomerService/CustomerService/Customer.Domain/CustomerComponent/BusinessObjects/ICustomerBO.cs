@@ -1,4 +1,4 @@
-﻿namespace Customer.Domain.Customer.BusinessObjects
+﻿namespace Customer.Domain.CustomerComponent.BusinessObjects
 {
     public interface ICustomerBO
     {

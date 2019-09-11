@@ -1,11 +1,11 @@
 ﻿using Customer.API.Controllers;
-using Customer.Domain.Customer.BusinessObjects;
+using Customer.Domain.CustomerComponent.BusinessObjects;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using System;
 using System.Net;
-using BusinessModels = Customer.Domain.Customer.BusinessObjects.BusinessModels;
+using BusinessModels = Customer.Domain.CustomerComponent.BusinessObjects.BusinessModels;
 
 namespace Customer.API.UnitTests.Controllers
 {
@@ -36,7 +36,7 @@ namespace Customer.API.UnitTests.Controllers
         public void GetCustomerProfile_Success200Ok()
         {
             // Arrange
-            Domain.Customer.BusinessObjects.BusinessModels.Customer expectedContent = new Domain.Customer.BusinessObjects.BusinessModels.Customer()
+            Domain.CustomerComponent.BusinessObjects.BusinessModels.Customer expectedContent = new Domain.CustomerComponent.BusinessObjects.BusinessModels.Customer()
             {
                 CreatedDate = DateTime.Now,
                 FirstName = "Test",
@@ -51,13 +51,13 @@ namespace Customer.API.UnitTests.Controllers
 
             // Act
             ProfileController controller = new ProfileController(mockCustomerProfileBO.Object);
-            ActionResult<Domain.Customer.BusinessObjects.BusinessModels.Customer> response = controller.GetCustomerProfile(It.IsAny<long>());
+            ActionResult<Domain.CustomerComponent.BusinessObjects.BusinessModels.Customer> response = controller.GetCustomerProfile(It.IsAny<long>());
 
             // Assert
             var actualStatusCode = (response.Result as ObjectResult).StatusCode;
             Assert.AreEqual((int)HttpStatusCode.OK, actualStatusCode);
 
-            var actualContent = (Domain.Customer.BusinessObjects.BusinessModels.Customer)Convert.ChangeType((response.Result as ObjectResult)?.Value, typeof(Domain.Customer.BusinessObjects.BusinessModels.Customer));
+            var actualContent = (Domain.CustomerComponent.BusinessObjects.BusinessModels.Customer)Convert.ChangeType((response.Result as ObjectResult)?.Value, typeof(Domain.CustomerComponent.BusinessObjects.BusinessModels.Customer));
             Assert.AreEqual(expectedContent, actualContent);
         }
 

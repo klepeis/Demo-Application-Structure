@@ -1,5 +1,5 @@
 ﻿using Customer.Domain.Factories;
-using Customer.Domain.Customer.BusinessObjects;
+using Customer.Domain.CustomerComponent.BusinessObjects;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 

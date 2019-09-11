@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Customer.Domain.Customer.BusinessObjects.BusinessModels
+namespace Customer.Domain.CustomerComponent.BusinessObjects.BusinessModels
 {
     public class Customer : IEqualityComparer<Customer>
     {

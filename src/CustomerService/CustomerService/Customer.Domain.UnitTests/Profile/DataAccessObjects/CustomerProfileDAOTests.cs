@@ -1,6 +1,6 @@
 ﻿using Customer.Domain.Infrastructure;
-using Customer.Domain.Customer.DataAccessObjects;
-using Customer.Domain.Customer.DataAccessObjects.Models.Entities;
+using Customer.Domain.CustomerComponent.DataAccessObjects;
+using Customer.Domain.CustomerComponent.DataAccessObjects.Models.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 

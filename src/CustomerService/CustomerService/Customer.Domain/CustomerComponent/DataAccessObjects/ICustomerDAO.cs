@@ -1,9 +1,9 @@
-﻿using Customer.Domain.Customer.DataAccessObjects.Models.Entities;
+﻿using Customer.Domain.CustomerComponent.DataAccessObjects.Models.Entities;
 using System.Runtime.CompilerServices;
 
 [assembly: InternalsVisibleTo("Customer.Tests")]
 [assembly: InternalsVisibleTo("DynamicProxyGenAssembly2")]
-namespace Customer.Domain.Customer.DataAccessObjects
+namespace Customer.Domain.CustomerComponent.DataAccessObjects
 {
     internal interface ICustomerDAO
     {

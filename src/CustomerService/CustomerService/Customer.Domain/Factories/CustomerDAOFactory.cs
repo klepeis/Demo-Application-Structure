@@ -1,5 +1,5 @@
 ﻿using Customer.Domain.Infrastructure;
-using Customer.Domain.Customer.DataAccessObjects;
+using Customer.Domain.CustomerComponent.DataAccessObjects;
 using System;
 
 namespace Customer.Domain.Factories

@@ -1,4 +1,4 @@
-﻿using Customer.Domain.Customer.DataAccessObjects.Models.Entities;
+﻿using Customer.Domain.CustomerComponent.DataAccessObjects.Models.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 

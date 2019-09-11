@@ -1,4 +1,4 @@
-﻿using Customer.Domain.Customer.DataAccessObjects;
+﻿using Customer.Domain.CustomerComponent.DataAccessObjects;
 
 namespace Customer.Domain.Factories
 {

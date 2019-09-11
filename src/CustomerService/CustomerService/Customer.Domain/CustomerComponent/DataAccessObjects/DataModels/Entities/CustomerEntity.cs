@@ -3,7 +3,7 @@ using System.Runtime.CompilerServices;
 
 [assembly: InternalsVisibleTo("Customer.Tests")]
 [assembly: InternalsVisibleTo("DynamicProxyGenAssembly2")]
-namespace Customer.Domain.Customer.DataAccessObjects.Models.Entities
+namespace Customer.Domain.CustomerComponent.DataAccessObjects.Models.Entities
 {
     internal class CustomerEntity
     {

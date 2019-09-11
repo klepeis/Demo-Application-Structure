@@ -1,4 +1,4 @@
-﻿using Customer.Domain.Customer.BusinessObjects;
+﻿using Customer.Domain.CustomerComponent.BusinessObjects;
 using System;
 
 namespace Customer.Domain.Factories
