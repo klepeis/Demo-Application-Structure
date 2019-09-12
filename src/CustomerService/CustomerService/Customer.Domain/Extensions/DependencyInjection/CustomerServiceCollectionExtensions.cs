@@ -1,6 +1,6 @@
 ﻿using Customer.Domain.Factories;
 using Customer.Domain.Infrastructure;
-using Customer.Domain.CustomerComponent.BusinessObjects;
+using Customer.Domain.CustomerModule.BusinessObjects;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 

@@ -1,5 +1,5 @@
-﻿using Customer.Domain.CustomerComponent.BusinessObjects;
-using Customer.Domain.CustomerComponent.BusinessObjects.BusinessModels;
+﻿using Customer.Domain.CustomerModule.BusinessObjects;
+using Customer.Domain.CustomerModule.BusinessObjects.BusinessModels;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -26,9 +26,9 @@ namespace Customer.API.Controllers
 
         // GET: api/Profile/5
         [HttpGet("{id}", Name = "Get")]
-        [ProducesResponseType(typeof(Domain.CustomerComponent.BusinessObjects.BusinessModels.Customer), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(Domain.CustomerModule.BusinessObjects.BusinessModels.Customer), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public ActionResult<Domain.CustomerComponent.BusinessObjects.BusinessModels.Customer> GetCustomerProfile(long id)
+        public ActionResult<Domain.CustomerModule.BusinessObjects.BusinessModels.Customer> GetCustomerProfile(long id)
         {
             var result = _customerProfileBO.GetProfile(id);
 
@@ -42,13 +42,13 @@ namespace Customer.API.Controllers
 
         // POST: api/Profile
         [HttpPost]
-        [ProducesResponseType(typeof(Domain.CustomerComponent.BusinessObjects.BusinessModels.Customer), StatusCodes.Status201Created)]
+        [ProducesResponseType(typeof(Domain.CustomerModule.BusinessObjects.BusinessModels.Customer), StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public ActionResult<Domain.CustomerComponent.BusinessObjects.BusinessModels.Customer> AddCustomerProfile([FromBody] Domain.CustomerComponent.BusinessObjects.BusinessModels.Customer profileToAdd)
+        public ActionResult<Domain.CustomerModule.BusinessObjects.BusinessModels.Customer> AddCustomerProfile([FromBody] Domain.CustomerModule.BusinessObjects.BusinessModels.Customer profileToAdd)
         {
             if (ModelState.IsValid)
             {
-                Domain.CustomerComponent.BusinessObjects.BusinessModels.Customer newProfile = _customerProfileBO.AddProfile((Domain.CustomerComponent.BusinessObjects.BusinessModels.Customer)profileToAdd);
+                Domain.CustomerModule.BusinessObjects.BusinessModels.Customer newProfile = _customerProfileBO.AddProfile((Domain.CustomerModule.BusinessObjects.BusinessModels.Customer)profileToAdd);
                 return CreatedAtAction(nameof(GetCustomerProfile), new { id = newProfile.Id }, newProfile);
             }
 
@@ -59,7 +59,7 @@ namespace Customer.API.Controllers
         [HttpPut("{id}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public ActionResult UpdateCustomerProfile(long id, [FromBody] Domain.CustomerComponent.BusinessObjects.BusinessModels.Customer profileToUpdate)
+        public ActionResult UpdateCustomerProfile(long id, [FromBody] Domain.CustomerModule.BusinessObjects.BusinessModels.Customer profileToUpdate)
         {
             if(id != profileToUpdate.Id)
             {

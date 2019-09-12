@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using Product.Domain.InventoryComponent.DataAccessObjects.DataModels.Entities;
-using Product.Domain.ProductComponent.DataAccessObjects.DataModels.Entities;
+using Product.Domain.InventoryModule.DataAccessObjects.DataModels.Entities;
+using Product.Domain.ProductModule.DataAccessObjects.DataModels.Entities;
 
 namespace Product.Domain.Infrastructure.EntityTypeConfigurations
 {

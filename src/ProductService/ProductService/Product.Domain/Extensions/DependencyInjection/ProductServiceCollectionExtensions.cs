@@ -2,8 +2,8 @@
 using Microsoft.Extensions.DependencyInjection;
 using Product.Domain.Factories;
 using Product.Domain.Infrastructure;
-using Product.Domain.InventoryComponent.BusinessObjects;
-using Product.Domain.ProductComponent.BusinessObjects;
+using Product.Domain.InventoryModule.BusinessObjects;
+using Product.Domain.ProductModule.BusinessObjects;
 
 namespace Product.Domain.Extensions.DependencyInjection
 {

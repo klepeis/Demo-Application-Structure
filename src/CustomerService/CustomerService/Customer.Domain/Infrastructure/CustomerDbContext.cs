@@ -1,5 +1,5 @@
 ﻿using Customer.Domain.Infrastructure.EntityTypeConfigurations;
-using Customer.Domain.CustomerComponent.DataAccessObjects.Models.Entities;
+using Customer.Domain.CustomerModule.DataAccessObjects.Models.Entities;
 using Microsoft.EntityFrameworkCore;
 using System.Runtime.CompilerServices;
 

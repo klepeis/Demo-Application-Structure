@@ -1,5 +1,5 @@
-﻿using Product.Domain.InventoryComponent.BusinessObjects;
-using Product.Domain.ProductComponent.BusinessObjects;
+﻿using Product.Domain.InventoryModule.BusinessObjects;
+using Product.Domain.ProductModule.BusinessObjects;
 using System;
 
 namespace Product.Domain.Factories

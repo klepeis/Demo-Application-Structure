@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Product.Domain.InventoryComponent.BusinessObjects;
-using Product.Domain.InventoryComponent.BusinessObjects.BusinessModels;
+using Product.Domain.InventoryModule.BusinessObjects;
+using Product.Domain.InventoryModule.BusinessObjects.BusinessModels;
 using System;
 
 namespace Product.API.Controllers

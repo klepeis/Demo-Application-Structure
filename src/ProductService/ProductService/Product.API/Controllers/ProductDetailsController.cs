@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Product.Domain.ProductComponent.BusinessObjects;
-using Product.Domain.ProductComponent.BusinessObjects.BusinessModels;
+using Product.Domain.ProductModule.BusinessObjects;
+using Product.Domain.ProductModule.BusinessObjects.BusinessModels;
 using System;
 
 namespace Product.API.Controllers
@@ -26,25 +26,25 @@ namespace Product.API.Controllers
 
         // GET: api/ProductDetails/5
         [HttpGet("{id}")]
-        [ProducesResponseType(typeof(Domain.ProductComponent.BusinessObjects.BusinessModels.Product), StatusCodes.Status200OK)]
-        public ActionResult<Domain.ProductComponent.BusinessObjects.BusinessModels.Product> GetProductDetail(long id)
+        [ProducesResponseType(typeof(Domain.ProductModule.BusinessObjects.BusinessModels.Product), StatusCodes.Status200OK)]
+        public ActionResult<Domain.ProductModule.BusinessObjects.BusinessModels.Product> GetProductDetail(long id)
         {
             return Ok(_productDetailBO.GetProduct(id));
         }
 
         // POST: api/ProductDetails
         [HttpPost]
-        [ProducesResponseType(typeof(Domain.ProductComponent.BusinessObjects.BusinessModels.Product), StatusCodes.Status201Created)]
-        public ActionResult<Domain.ProductComponent.BusinessObjects.BusinessModels.Product> Post([FromBody] Domain.ProductComponent.BusinessObjects.BusinessModels.Product productToAdd)
+        [ProducesResponseType(typeof(Domain.ProductModule.BusinessObjects.BusinessModels.Product), StatusCodes.Status201Created)]
+        public ActionResult<Domain.ProductModule.BusinessObjects.BusinessModels.Product> Post([FromBody] Domain.ProductModule.BusinessObjects.BusinessModels.Product productToAdd)
         {
-            Domain.ProductComponent.BusinessObjects.BusinessModels.Product newProduct = _productDetailBO.AddProduct((Domain.ProductComponent.BusinessObjects.BusinessModels.Product)productToAdd);
+            Domain.ProductModule.BusinessObjects.BusinessModels.Product newProduct = _productDetailBO.AddProduct((Domain.ProductModule.BusinessObjects.BusinessModels.Product)productToAdd);
             return CreatedAtAction(nameof(GetProductDetail), new { id = newProduct.Id }, newProduct);
         }
 
         // PUT: api/ProductDetails/5
         [HttpPut("{id}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
-        public ActionResult Put(long id, [FromBody] Domain.ProductComponent.BusinessObjects.BusinessModels.Product productToUpdate)
+        public ActionResult Put(long id, [FromBody] Domain.ProductModule.BusinessObjects.BusinessModels.Product productToUpdate)
         {
             if (id != productToUpdate.Id)
             {

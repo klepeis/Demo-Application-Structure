@@ -1,6 +1,6 @@
 ﻿using Customer.Domain.Factories;
 using Customer.Domain.Infrastructure;
-using Customer.Domain.CustomerComponent.DataAccessObjects;
+using Customer.Domain.CustomerModule.DataAccessObjects;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 
